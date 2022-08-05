@@ -1,0 +1,11 @@
+
+POST http://localhost:3030/data/users/register
+Content-Type: application/json
+
+{"email": "iana@abv.bg",
+"password" : "123"
+}
+
+###
+
+GET http://localhost:3030/data/users/logout
