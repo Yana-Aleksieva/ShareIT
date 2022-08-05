@@ -7,6 +7,7 @@ import Logout from './components/Logout/Logout';
 import Login from './components/Login/Login.js';
 import { AuthContext } from './components/contexts/authContext.js';
 import { useState } from 'react';
+import Mathematics, {Mathemtics} from './components/Mathematics/Mathematics'
 import Home from './components/Home/Home.js';
 
 
@@ -26,7 +27,7 @@ function App() {
 
   return (
 
-    <AuthContext.Provider value={{ user: auth, userLogin, userLogout}}>
+    <AuthContext.Provider value={{ user: auth, userLogin, userLogout }}>
       <div id='box'>
         <Header />
 
@@ -36,8 +37,9 @@ function App() {
           <Routes>
             <Route path='/register' element={<Register />} />
             <Route path='/login' element={<Login />} />
-            <Route path='/' element={<Home/>} />
+            <Route path='/' element={<Home />} />
             <Route path='/logout' element={<Logout />} />
+            <Route path='/math' element={<Mathematics />} />
           </Routes>
 
         </main>
