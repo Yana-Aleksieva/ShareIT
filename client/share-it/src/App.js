@@ -9,6 +9,7 @@ import { AuthContext } from './components/contexts/authContext.js';
 import { useState } from 'react';
 import Mathematics, {Mathemtics} from './components/Mathematics/Mathematics'
 import Home from './components/Home/Home.js';
+import Create from './components/Create/Create.js';
 
 
 function App() {
@@ -40,6 +41,7 @@ function App() {
             <Route path='/' element={<Home />} />
             <Route path='/logout' element={<Logout />} />
             <Route path='/math' element={<Mathematics />} />
+            <Route path='/create' element={<Create />} />
           </Routes>
 
         </main>

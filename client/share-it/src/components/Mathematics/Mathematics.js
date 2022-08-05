@@ -98,7 +98,7 @@ const Mathematics = () => {
               className="bg-info rounded-circle d-flex align-items-center justify-content-center shadow-1-strong"
               style={{ width: 35, height: 35 }}
             >
-              <p className="text-white mb-0 small">x4</p>
+              <p className="text-white mb-0 small"></p>
             </div>
           </div>
           <img
