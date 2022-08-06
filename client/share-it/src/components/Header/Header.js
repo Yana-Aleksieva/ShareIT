@@ -33,6 +33,8 @@ const Header = () => {
               </Link>
               <Link to="/create" className='nav-item nav-link'>Create test
               </Link>
+              <Link to="/profile" className='nav-item nav-link'>Profile
+              </Link>
             </div>
             :
             <div className="navbar-nav float-right">

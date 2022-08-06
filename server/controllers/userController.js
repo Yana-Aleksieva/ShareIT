@@ -65,4 +65,13 @@ router.post('/refresh', async (req, res) => {
 });
 
 
+router.put('/users/edit/:id', async (req, res) => {
+
+    console.log(req.body)
+  await  userService.updateOneById(req.params.id, req.body);
+
+    res.json({ok: true})
+})
+
+
 module.exports = router;

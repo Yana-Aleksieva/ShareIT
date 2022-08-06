@@ -17,7 +17,19 @@ const userSchema = new mongoose.Schema({
     },
     refreshToken: {
         type: String
-    }
+    },
+    role: {
+        type: String,
+        
+    },
+    gender: {
+        type: String,
+        
+    },
+    phone: {
+        type: String,
+       
+    },
 
 });
 

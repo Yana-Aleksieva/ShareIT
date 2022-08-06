@@ -71,3 +71,12 @@ exports.refresh = async (refreshToken) => {
         return null;
     }
 }
+
+exports.updateOneById = async (id, data) => {
+   const user = await User.findById(id);
+   user.role = data.role;
+   user.phone = data.phone;
+   user.gender = data.gender;
+
+  await  user.save();
+};

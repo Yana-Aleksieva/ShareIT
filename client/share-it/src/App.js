@@ -12,6 +12,7 @@ import Mathematics, { Mathemtics } from './components/Mathematics/Mathematics'
 import Home from './components/Home/Home.js';
 import Create from './components/Create/Create.js';
 import Edit from './components/Mathematics/EditTest/EditTest.js';
+import Profile from './components/Profile/Profile.js';
 
 function App() {
 
@@ -36,14 +37,15 @@ function App() {
   return (
 
     <AuthContext.Provider value={{ user: auth, userLogin, userLogout }}>
-      <TestsContext.Provider value={{testsData}}>
+     
+      
         <div id='box'>
           <Header />
 
           <main id='main-content'>
 
 
-            <Routes>
+            <Routes >
               <Route path='/register' element={<Register />} />
               <Route path='/login' element={<Login />} />
               <Route path='/' element={<Home />} />
@@ -51,12 +53,18 @@ function App() {
               <Route path='/math' element={<Mathematics />} />
               <Route path='/create' element={<Create />} />
               <Route path='/edit/:id' element={<Edit />} />
+             
+              <Route path='/profile' element={<Profile />} />
+             
+
             </Routes>
 
           </main>
 
         </div>
-      </TestsContext.Provider>
+       
+    
+     
     </AuthContext.Provider>
 
   );
