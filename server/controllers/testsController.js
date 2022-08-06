@@ -18,5 +18,12 @@ router.get('/', async (req, res) => {
 
 });
 
+router.get('/edit/:id', async (req, res) => {
 
+const id = req.params.id;
+let test = await testService.getOneById(id);
+
+res.json(test);
+
+});
 module.exports = router;

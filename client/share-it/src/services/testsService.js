@@ -28,3 +28,13 @@ const res =  await request.json();
     
     
 }   
+
+export const getOneById = async (id) => {
+
+    const request =
+    await fetch(`${baseUrl}/edit/${id}`);
+
+const response = await request.json();
+
+return response;
+}

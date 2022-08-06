@@ -11,7 +11,7 @@ import { useState } from 'react';
 import Mathematics, { Mathemtics } from './components/Mathematics/Mathematics'
 import Home from './components/Home/Home.js';
 import Create from './components/Create/Create.js';
-
+import Edit from './components/Mathematics/EditTest/EditTest.js';
 
 function App() {
 
@@ -50,6 +50,7 @@ function App() {
               <Route path='/logout' element={<Logout />} />
               <Route path='/math' element={<Mathematics />} />
               <Route path='/create' element={<Create />} />
+              <Route path='/edit/:id' element={<Edit />} />
             </Routes>
 
           </main>

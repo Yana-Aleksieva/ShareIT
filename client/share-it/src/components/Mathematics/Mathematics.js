@@ -1,16 +1,20 @@
 import { getAll } from '../../services/testsService'
 import { useState, useEffect } from 'react';
 import LatestTests from './LatestTests/LatestTests.js';
+import { useContext } from "react";
+import { TestsContext } from '../contexts/testsContext.js';
 
 const Mathematics = () => {
-  const [tests, setTests] = useState([])
+  const [tests, setTests] = useState([]);
+const {testsData} = useContext(TestsContext);
 
   useEffect(() => {
 
 
       getAll()
       .then(result => {
-        setTests(result)
+       testsData(result) ;
+        setTests(result);
       }, [])
     
   

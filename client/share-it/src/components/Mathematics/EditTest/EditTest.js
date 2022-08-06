@@ -1,12 +1,30 @@
+import { useState, useEffect } from "react";
+import { getOneById } from "../../../services/testsService";
+
+const Edit = (props) => {
+  console.log(props)
+  const onSubmit = (e) => {
+
+    e.preventDefault();
+    const [test, setTest] = useState([]);
+  
+    useEffect(() => {
 
 
-const Edit = () => {
+      getOneById()
+      .then(result => {
+      
+        setTest(result);
+      }, []);
+    
+  
 
+  });
+  }
 
+  return (
 
-    return(
-
-        <div className="container mt-5">
+    <div className="container mt-5">
       <form onSubmit={onSubmit}>
         <div className="d-flex justify-content-center row">
           <div className="col-md-10 col-lg-10">
@@ -81,7 +99,7 @@ const Edit = () => {
         </div>
       </form>
     </div>
-    );
+  );
 }
 
 export default Edit;

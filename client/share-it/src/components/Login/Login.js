@@ -6,7 +6,7 @@ import { AuthContext } from "../contexts/authContext.js";
 
 
 const Login = () => {
-const {userLogin} = useContext(AuthContext);
+  const { userLogin } = useContext(AuthContext);
   const navigate = useNavigate();
 
 
@@ -16,19 +16,19 @@ const {userLogin} = useContext(AuthContext);
 
     e.preventDefault();
     const {
-    
+
       email,
       password
     } = Object.fromEntries(new FormData(e.target));
     console.log(email, password);
 
     try {
-     await register('POST', 'http://localhost:3030/data/users/login', { email, password })
-     .then(authData => {
-      userLogin(authData)
-     })
+      await register('POST', 'http://localhost:3030/data/users/login', { email, password })
+        .then(authData => {
+          userLogin(authData)
+        })
       console.log(user);
-    
+
       navigate('/')
     } catch (err) {
       navigate('/')
@@ -55,7 +55,7 @@ const {userLogin} = useContext(AuthContext);
                     <p className="text-white-50 mb-5">
                       Please enter your name, email and password!
                     </p>
-                
+
                     <div className="form-outline form-white mb-4">
                       <input
                         type="email"
