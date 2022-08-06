@@ -1,4 +1,4 @@
-
+import { Link } from "react-router-dom";
 const Home  = () => {
 
 
@@ -25,9 +25,9 @@ const Home  = () => {
           </li>
         </ul>
         <div className="pricing-footer">
-          <a href="/math" className="btn btn-primary btn-lg">
+          <Link to="/math" className="btn btn-primary btn-lg">
            Try it
-          </a>
+          </Link>
         </div>
       </div>
     </div>

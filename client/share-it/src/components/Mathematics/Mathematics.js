@@ -1,10 +1,20 @@
-
+import {getAll} from '../../services/testsService'
 
 const Mathematics = () => {
 
+const onLoad = async () => {
+
+  const tests = await getAll();
+  console.log(tests)
+}
+const onClick = (e) => {
+
+}
+
     return(
-<section >
-  <div className="container py-5">
+<section onLoad={onLoad}>
+  <div className="container py-5" >
+
     <div className="row">
       <div className="col-md-12 col-lg-4 mb-4 mb-lg-0">
         <div className="card">
@@ -43,6 +53,7 @@ const Mathematics = () => {
                 <i className="fa fa-star" />
                 <i className="fa fa-star" />
                 <i className="fa fa-star" />
+                <button className="btn btn-dark" onClick={onClick}>Details</button>
               </div>
             </div>
           </div>
@@ -71,7 +82,7 @@ const Mathematics = () => {
                   Author
                 </a>
               </p>
-              <p class="mb-0 text-dark">Yana</p>
+              <p className="mb-0 text-dark">Yana</p>
             </div>
             <div className="d-flex justify-content-between mb-3">
               <h5 className="mb-0 text-dark">Grade</h5>

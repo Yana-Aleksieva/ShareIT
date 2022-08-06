@@ -10,5 +10,13 @@ router.post('/create', async (req, res) => {
 
 });
 
+router.get('/', async (req, res) => {
+
+ const data = await testService.getAll()
+
+ res.json(data)
+
+});
+
 
 module.exports = router;
