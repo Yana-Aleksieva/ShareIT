@@ -6,20 +6,28 @@ import { TestsContext } from '../contexts/testsContext.js';
 
 const Mathematics = () => {
   const [tests, setTests] = useState([]);
-const {testsData} = useContext(TestsContext);
+  const { testsData } = useContext(TestsContext);
 
   useEffect(() => {
 
+    const fetchData = async () => {
+      try {
+        const body = await getAll()
 
-      getAll()
-      .then(result => {
-       testsData(result) ;
-        setTests(result);
-      }, [])
-    
-  
+        testsData(body);
+        setTests(body);
 
+
+      } catch (err) {
+
+      }
+
+
+    }
+
+    fetchData();
   });
+
 
 
   return (
@@ -28,13 +36,13 @@ const {testsData} = useContext(TestsContext);
 
         <div className="row">
 
-           {
+          {
             tests.length > 0
-           
-           ? tests.map(test => <LatestTests key={test._id} test={test}  /> )
-           : <p>No tests yet</p>
-          } 
-         
+
+              ? tests.map(test => <LatestTests key={test._id} test={test} />)
+              : <p>No tests yet</p>
+          }
+
         </div>
       </div>
     </section>

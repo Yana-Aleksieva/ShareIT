@@ -19,22 +19,51 @@ export const createTest = async (data) => {
 
 export const getAll = async () => {
 
-const request = await  fetch(`${baseUrl}`)
- 
-const res =  await request.json();
-  
-    return res;
-    
-    
-    
-}   
+    return await fetch(`${baseUrl}`)
+
+        .then(result => result.json())
+
+
+
+
+
+}
 
 export const getOneById = async (id) => {
 
+
+    return await fetch(`${baseUrl}/edit/${id}`)
+        .then(result => result.json())
+
+
+}
+
+
+export const edit = async (id, data) => {
+
     const request =
-    await fetch(`${baseUrl}/edit/${id}`);
+        await fetch(`${baseUrl}/edit/${id}`, {
+            method: 'PUT',
+            headers: {
+                'Content-type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        });
 
-const response = await request.json();
+    const response = await request.json();
 
-return response;
+
+}
+
+export const deleteTest = async (id) => {
+
+
+    const request =
+        await fetch(`${baseUrl}/delete/${id}`, {
+            method: 'DELETE',
+
+        });
+
+    const response = await request.json();
+    return response;
 }

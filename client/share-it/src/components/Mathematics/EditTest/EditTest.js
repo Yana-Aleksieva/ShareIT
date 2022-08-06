@@ -1,21 +1,39 @@
 import { useState, useEffect } from "react";
 import { getOneById } from "../../../services/testsService";
-import { useParams } from "react-router-dom";
-
+import { useParams, useNavigate } from "react-router-dom";
+import { edit } from "../../../services/testsService";
+import { deleteTest } from "../../../services/testsService";
 
 const Edit = () => {
+
+  const navigate = useNavigate();
   const params = useParams()
-  console.log(params);
+  const id = params.id
   const [test, setTest] = useState([]);
 
-
   useEffect(() => {
-    getOneById(params.id)
-      .then(result => {
-        console.log(result)
-        setTest(result);
-      }, []);
-  });
+
+    const fetchData = async () => {
+      try {
+
+        const body = await getOneById(id)
+        setTest(body);
+      } catch (err) {
+
+      }
+    }
+
+
+    fetchData()
+
+  }, [])
+
+  const onClick = (e) => {
+    e.preventDefault()
+    deleteTest(id)
+    navigate('/');
+
+  }
 
 
   const onSubmit = (e) => {
@@ -23,10 +41,16 @@ const Edit = () => {
     e.preventDefault();
 
 
+    const data = Object.fromEntries(new FormData(e.target));
+    console.log(data)
+    edit(id, data)
 
+    navigate('/')
 
 
   }
+
+
 
 
 
@@ -47,7 +71,7 @@ const Edit = () => {
                     className="ml-5"
                     placeholder="Type your question"
                     name="title"
-                    value={test.title}
+                    defaultValue={test.title}
                   >
                   </input>
 
@@ -60,25 +84,28 @@ const Edit = () => {
                     className="ml-5"
                     placeholder="Type your question"
                     name="question1"
-                    value={test.question1}
+                    defaultValue={test.question1}
                   >
                   </input>
                 </div>
                 <div className="ans ml-2">
-                  <label >a.</label>
+                  <label >a.
 
-                  <input className="ml-5"
-                    placeholder="answer"
-                    name="answer1"
-                    value={test.answer1}></input>
+
+                    <input
+                      className="ml-5"
+                      placeholder="answer"
+                      name="answer1"
+                      defaultValue={test.answer1} />
+                  </label>
                 </div>
                 <div className="ans ml-2">
                   <label >b. </label>
 
                   <input className="ml-5"
                     placeholder="answer"
-                    name="answer2" 
-                    value={test.answer2}/>
+                    name="answer2"
+                    defaultValue={test.answer2} />
 
 
 
@@ -88,8 +115,8 @@ const Edit = () => {
 
                   <input className="ml-5"
                     placeholder="answer"
-                    name="answer3" 
-                    value={test.answer3}>
+                    name="answer3"
+                    defaultValue={test.answer3}>
 
                   </input>
                 </div>
@@ -98,8 +125,8 @@ const Edit = () => {
 
                   <input className="ml-5"
                     placeholder="answer"
-                    name="answer4" 
-                    value={test.answer4}/>
+                    name="answer4"
+                    defaultValue={test.answer4} />
                 </div>
               </div>
 
@@ -109,7 +136,16 @@ const Edit = () => {
                   className="btn btn-primary border-success align-items-center btn-success"
                   type="submit"
                 >
-                  Create
+                  Edit
+                  <i className="fa fa-angle-right ml-2" />
+                </button>
+                <button
+                  onClick={onClick}
+                  type="button"
+                  className="btn btn-primary border-success align-items-center btn-success"
+
+                >
+                  Delete
                   <i className="fa fa-angle-right ml-2" />
                 </button>
               </div>

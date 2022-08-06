@@ -26,4 +26,25 @@ let test = await testService.getOneById(id);
 res.json(test);
 
 });
+
+router.put('/edit/:id', async (req, res) => {
+
+    const id = req.params.id;
+    await testService.updateOneById(id, req.body);
+
+    res.json({ok: true});
+    
+  
+    
+    });
+
+
+    router.delete('/delete/:id', async (req, res) => {
+
+
+        const id = req.params.id;
+        await testService.deleteTest(id);
+        res.json({ok: true});
+    });
+
 module.exports = router;

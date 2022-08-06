@@ -30,7 +30,7 @@ const LatestTests = ({
                   {test._ownerId}
                 </a>
               </p>
-              <p class="mb-0 text-dark">Yana</p>
+              <p className="mb-0 text-dark">Yana</p>
             </div>
             <div className="d-flex justify-content-between mb-3">
               <h5 className="mb-0 text-dark">Grade</h5>
