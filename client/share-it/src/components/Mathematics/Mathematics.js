@@ -3,10 +3,12 @@ import { useState, useEffect } from 'react';
 import LatestTests from './LatestTests/LatestTests.js';
 import { useContext } from "react";
 import { TestsContext } from '../contexts/testsContext.js';
+import './math.css';
+
 
 const Mathematics = () => {
   const [tests, setTests] = useState([]);
-  const { testsData } = useContext(TestsContext);
+
 
   useEffect(() => {
 
@@ -14,7 +16,7 @@ const Mathematics = () => {
       try {
         const body = await getAll()
 
-        testsData(body);
+
         setTests(body);
 
 

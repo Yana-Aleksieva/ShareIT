@@ -1,23 +1,35 @@
 import { Link } from "react-router-dom";
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../contexts/authContext.js";
-import { editProfile } from "../../services/userService.js";
+import { editProfile, retrieveAvatar } from "../../services/userService.js";
 
 const Profile = () => {
-  const {user} = useContext(AuthContext);
+  const { user } = useContext(AuthContext);
+const [img, setImg] = useState([]);
+  const onSubmit = (e) => {
+    e.preventDefault();
 
-const onSubmit = (e) => {
-e.preventDefault();
+    const data = Object.fromEntries(new FormData(e.target));
 
-const data = Object.fromEntries(new FormData(e.target));
+    editProfile(user._id, data);
+  }
+  useEffect( () => {
+    const result =  retrieveAvatar(user._id)
+    .then(result => setImg(result))
+    
+  })
 
-editProfile(user._id, data);
-}
- 
+console.log(img)
+
+
   return (
 
     <section className=" vh-100 gradient-custom ">
       <div className="container  py-5 h-50 ">
+        <div className="avatar">
+          <img src={img.src} class="rounded-circle"
+            alt="Avatar" />
+        </div>
         <form className="" onSubmit={onSubmit}>
           <div className="row d-flex justify-content-center align-items-center h-100">
             <div className="col-12 col-md-8 col-lg-6 col-xl-5">
@@ -29,11 +41,11 @@ editProfile(user._id, data);
                   <div className="mb-md-5 mt-md-4 pb-5">
                     <h2 className="fw-bold mb-2 text-uppercase">My Profile</h2>
                     <p className="text-white-50 mb-5">
-                     Welcome, {user.name}!
+                      Welcome, {user.name}!
                     </p>
                     <div className="form-outline form-white mb-4">
                       <label className="form-label" htmlFor="typeEmailX">
-                       Phone
+                        Phone
                       </label>
                       <input
                         type="phone"

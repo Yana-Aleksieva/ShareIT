@@ -27,3 +27,14 @@ export const editProfile = async (id, data) => {
     const response = await request.json();
 
 }
+
+export const retrieveAvatar = async (id) => {
+
+ 
+    const request =
+        await fetch(`https://api.lorem.space/image/movie?w=150&h=220`)
+      
+
+    const response = await request.json();
+
+}
