@@ -1,27 +1,38 @@
 import { useState, useEffect } from "react";
 import { getOneById } from "../../../services/testsService";
+import { useParams } from "react-router-dom";
 
-const Edit = (props) => {
-  console.log(props)
+
+const Edit = () => {
+  const params = useParams()
+  console.log(params);
+  const [test, setTest] = useState([]);
+
+
+  useEffect(() => {
+    getOneById(params.id)
+      .then(result => {
+        console.log(result)
+        setTest(result);
+      }, []);
+  });
+
+
   const onSubmit = (e) => {
 
     e.preventDefault();
-    const [test, setTest] = useState([]);
-  
-    useEffect(() => {
 
 
-      getOneById()
-      .then(result => {
-      
-        setTest(result);
-      }, []);
-    
-  
 
-  });
+
+
   }
 
+
+
+
+
+  console.log(test);
   return (
 
     <div className="container mt-5">
@@ -36,6 +47,7 @@ const Edit = (props) => {
                     className="ml-5"
                     placeholder="Type your question"
                     name="title"
+                    value={test.title}
                   >
                   </input>
 
@@ -48,6 +60,7 @@ const Edit = (props) => {
                     className="ml-5"
                     placeholder="Type your question"
                     name="question1"
+                    value={test.question1}
                   >
                   </input>
                 </div>
@@ -56,14 +69,16 @@ const Edit = (props) => {
 
                   <input className="ml-5"
                     placeholder="answer"
-                    name="answer1" />
+                    name="answer1"
+                    value={test.answer1}></input>
                 </div>
                 <div className="ans ml-2">
                   <label >b. </label>
 
                   <input className="ml-5"
                     placeholder="answer"
-                    name="answer2" />
+                    name="answer2" 
+                    value={test.answer2}/>
 
 
 
@@ -73,14 +88,18 @@ const Edit = (props) => {
 
                   <input className="ml-5"
                     placeholder="answer"
-                    name="answer3" />
+                    name="answer3" 
+                    value={test.answer3}>
+
+                  </input>
                 </div>
                 <div className=" ml-2">
                   <label >d. </label>
 
                   <input className="ml-5"
                     placeholder="answer"
-                    name="answer4" />
+                    name="answer4" 
+                    value={test.answer4}/>
                 </div>
               </div>
 
