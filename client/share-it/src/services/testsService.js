@@ -19,9 +19,12 @@ export const createTest = async (data) => {
 
 export const getAll = async () => {
 
-
-    const request = fetch(`${baseUrl}`);
-    const tests = await request.json()
-    console.log(tests);
-    return tests;
-}
+const request = await  fetch(`${baseUrl}`)
+ 
+const res =  await request.json();
+  
+    return res;
+    
+    
+    
+}   

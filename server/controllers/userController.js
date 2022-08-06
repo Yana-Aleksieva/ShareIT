@@ -9,6 +9,7 @@ router.post('/users/login', async (req, res) => {
 
     res.json({
         _id: user._id,
+        name: user.name,
         email: user.email,
         token: user.refreshToken
 
@@ -17,11 +18,11 @@ router.post('/users/login', async (req, res) => {
 
 router.post('/users/register', async (req, res) => {
 
-    let { email, password } = req.body;
+    let {name, email, password } = req.body;
 
      try {
 
-        const user = await userService.createUser( email, password );
+        const user = await userService.createUser(name, email, password );
         res.cookie(COOKIE_NAME, user.refreshToken, {httpOnly: true})
       
         res.json({

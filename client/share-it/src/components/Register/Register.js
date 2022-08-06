@@ -16,13 +16,14 @@ const Register = () => {
 
     e.preventDefault();
     const {
+      name,
       email,
       password
     } = Object.fromEntries(new FormData(e.target));
-    console.log(email, password);
+   
 
     try {
-      const user = await register('POST', 'http://localhost:3030/data/users/register', { email, password });
+      const user = await register('POST', 'http://localhost:3030/data/users/register', {name, email, password });
       //console.log(user);
       userLogin(user)
       navigate('/')
@@ -55,6 +56,17 @@ const Register = () => {
                     <p className="text-white-50 mb-5">
                       Please enter your email and password!
                     </p>
+                    <div className="form-outline form-white mb-4">
+                      <input
+                        type="name"
+                        id="name"
+                        name="name"
+                        className="form-control form-control-lg"
+                      />
+                      <label className="form-label" htmlFor="typeEmailX">
+                        Name
+                      </label>
+                    </div>
                     <div className="form-outline form-white mb-4">
                       <input
                         type="email"

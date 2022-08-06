@@ -4,9 +4,9 @@ const { REFRESH_TOKEN_SECRET } = require('../env.js');
 const { TOKEN_SECRET } = require('../env.js');
 
 
-exports.createUser = async (email, password ) => {
+exports.createUser = async (name, email, password ) => {
 
-    const user = await (User.create({ email, password }));
+    const user = await (User.create({name, email, password }));
     let token = jwt.sign({ _id: user._id, email: user.email }, TOKEN_SECRET, { expiresIn: '1m' });
     let refreshToken = jwt.sign({ _id: user._id }, REFRESH_TOKEN_SECRET, { expiresIn: '10d' });
     user.refreshToken = refreshToken;

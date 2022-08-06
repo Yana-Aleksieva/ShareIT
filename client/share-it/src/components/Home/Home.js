@@ -55,24 +55,26 @@ const Home  = () => {
         </div>
       </div>
     </div>
-    <div className="col-xl-4 col-lg-4 col-md-12 col-sm-12">
+    <div className="col-xl-4 col-lg-4 col-md-6 col-sm-6">
       <div className="pricing-plan">
-        <div className="pricing-header secondary">
+        <div className="pricing-header red">
           
-          <div className="pricing-cost">Bulgarian </div>
-          
+          <div className="pricing-cost">English</div>
+
         </div>
         <ul className="pricing-features">
-          <li>50GB Linux Web Space</li>
-          <li>100 MySQL Databases</li>
-          <li>Unlimited Emails</li>
-          <li>1000Gb mothly Transfer</li>
+          <li>10GB Linux Web Space</li>
+          <li>10 MySQL Databases</li>
+          <li>1000 Emails</li>
+          <li>750Gb mothly Transfer</li>
           <li>24/7 Tech Support</li>
-          <li>Daily Backups</li>
+          <li className="text-muted">
+            <del>Daily Backups</del>
+          </li>
         </ul>
         <div className="pricing-footer">
-          <a href="/bg" className="btn btn-success btn-lg">
-            Try it
+          <a href="/enlish" className="btn btn-danger btn-lg">
+            Tri it
           </a>
         </div>
       </div>
