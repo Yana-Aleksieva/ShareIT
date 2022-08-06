@@ -1,10 +1,12 @@
 const router = require('express').Router();
-const userService = require('../services/userService');
 
+const testService = require('../services/testService')
 
-router.post ('/create', (req, res) => {
+router.post('/create', async (req, res) => {
 
-console.log(req.body)
+    console.log(req.body)
+    await testService.createTest({ ...req.body })
+    res.json({ ok: true });
 
 });
 

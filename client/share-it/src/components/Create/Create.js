@@ -1,22 +1,27 @@
 import { useContext } from "react";
 import { AuthContext } from "../contexts/authContext";
 import { useNavigate } from 'react-router-dom';
+import { createTest } from "../../services/testsService.js";
+
+
 
 const Create = () => {
   const { user } = useContext(AuthContext);
-const navigate = useNavigate();
+  const navigate = useNavigate();
 
   const onSubmit = async (e) => {
 
     e.preventDefault();
-console.log(user)
+    console.log(user)
     const data = Object.fromEntries(new FormData(e.target));
-    data.token = user.token;
+    data._ownerId = user._id;
     console.log(data);
     try {
-      await fetch('POST', 'http://localhost:3030/tests/create', { data })
-       
       
+      const response = await createTest(data);
+      console.log(response);
+
+
 
       navigate('/')
     } catch (err) {
