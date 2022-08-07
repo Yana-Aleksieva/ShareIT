@@ -39,13 +39,30 @@ const Create = () => {
                 <div className="d-flex flex-row justify-content-between align-items-center mcq">
                   <h4>Title</h4>
                   <input
-                    className="ml-5"
-                    placeholder="Type your question"
+                    className="ml-3"
+                    placeholder=""
                     name="title"
                   >
                   </input>
+                  <h4>Class</h4>
+                  <input
+                    className="ml-3"
+                    name="class"
+                  >
+                  </input>
+                  <h4>Topic</h4>
+                  <select
+                    className="ml-3"
+
+                    name="topic"
+                  >
+                     <option value="mathematics">Mathematics</option>
+                        <option value="english">English</option>
+                        <option value="bulgarian">Bulgarian</option>
+                  </select>
 
                 </div>
+               
               </div>
               <div className="question bg-white p-3 border-bottom">
                 <div className="d-flex flex-row align-items-center question-title">

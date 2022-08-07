@@ -22,11 +22,11 @@ const LatestTests = ({
            
             </div>
           </div>
-          <img
+          {/* <img
             src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/E-commerce/Products/4.webp"
             className="card-img-top"
             alt="Laptop"
-          />
+          /> */}
           <div className="card-body">
             <div className="d-flex justify-content-between">
               <p className="small">
@@ -37,8 +37,8 @@ const LatestTests = ({
               <p className="mb-0 text-dark"></p>
             </div>
             <div className="d-flex justify-content-between mb-3">
-              <h5 className="mb-0 text-dark">Grade</h5>
-              <h5 className="text-dark mb-0">6</h5>
+              <h5 className="mb-0 text-dark">Class: {test.class}</h5>
+              <h5 className="text-dark mb-0">Topic: {test.topic}</h5>
             </div>
             <div className="d-flex justify-content-between mb-2">
             

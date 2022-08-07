@@ -43,7 +43,7 @@ const Profile = () => {
   }
 
   const result = getAvatar();
- 
+
 
 
   return (
