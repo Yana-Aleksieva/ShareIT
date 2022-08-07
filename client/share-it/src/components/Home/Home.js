@@ -35,7 +35,7 @@ const Home  = () => {
     </div>
     <div className="col-xl-4 col-lg-4 col-md-6 col-sm-6">
       <div className="pricing-plan">
-        <div className="pricing-header red">
+        <div className="pricing-header">
           
           <div className="pricing-cost">English</div>
 
@@ -51,17 +51,17 @@ const Home  = () => {
           </li>
         </ul>
         <div className="pricing-footer">
-          <a href="/enlish" className="btn btn-danger btn-lg">
-            Tri it
+          <a href="/enlish" className="btn btn-primary btn-lg">
+            Try it
           </a>
         </div>
       </div>
     </div>
-    <div className="col-xl-4 col-lg-4 col-md-6 col-sm-6">
-      <div className="pricing-plan">
-        <div className="pricing-header red">
+    <div className="col-xl-4 col-lg-4 col-md-6 col-sm-6 ">
+      <div className="pricing-plan bg">
+        <div className="pricing-header">
           
-          <div className="pricing-cost">English</div>
+          <div className="pricing-cost">Bulgarian</div>
 
         </div>
         <ul className="pricing-features">
@@ -75,8 +75,8 @@ const Home  = () => {
           </li>
         </ul>
         <div className="pricing-footer">
-          <a href="/enlish" className="btn btn-danger btn-lg">
-            Tri it
+          <a href="/enlish" className="btn btn-primary btn-lg">
+            Try it
           </a>
         </div>
       </div>

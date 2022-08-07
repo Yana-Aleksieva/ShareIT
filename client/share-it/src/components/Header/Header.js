@@ -35,6 +35,8 @@ const Header = () => {
               </Link>
               <Link to="/profile" className='nav-item nav-link'>Profile
               </Link>
+              <Link to="/currentTests" className='nav-item nav-link'>My tests
+              </Link>
             </div>
             :
             <div className="navbar-nav float-right">

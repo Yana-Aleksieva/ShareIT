@@ -14,6 +14,8 @@ import Create from './components/Create/Create.js';
 import Edit from './components/Mathematics/EditTest/EditTest.js';
 import Profile from './components/Profile/Profile.js';
 import { useLocalStorage } from './hooks/useLocalStorage.js';
+import CurrentUserTests from './components/UserTests/CurrentUsrTests/CurrentUserTests.js';
+import UserTests from './components/UserTests/UserTests.js';
 
 function App() {
 
@@ -51,7 +53,7 @@ function App() {
               <Route path='/math' element={<Mathematics />} />
               <Route path='/create' element={<Create />} />
               <Route path='/edit/:id' element={<Edit />} />
-             
+              <Route path='/currentTests' element={<UserTests />} />
               <Route path='/profile' element={<Profile />} />
              
 
