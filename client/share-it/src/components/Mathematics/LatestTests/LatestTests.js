@@ -7,7 +7,8 @@ const LatestTests = ({
 }) => {
 
   const {user} = useContext(AuthContext)
-  
+
+ 
     return (
 
         <div className="col-md-12 col-lg-4 mb-4 mb-lg-0" >
@@ -48,13 +49,13 @@ const LatestTests = ({
                 <i className="fa fa-star" />
                 <i className="fa fa-star" />
 
-                { user._id === test._ownerID
+                { user._id == test._ownerId
                 
                 ? <Link to={`/edit/${test._id}` } className="text-white-50 fw-bold btn btn-dark" type="button" >Edit</Link>
                 
-                :<Link to={`/edit/${test._id}` } className="text-white-50 fw-bold btn btn-dark" type="button" >Try it</Link>
-                }
+                :<Link to={`/ `} className="text-white-50 fw-bold btn btn-dark" type="button" >Try it</Link>
                 
+}
               </div>
             </div>
           </div>
