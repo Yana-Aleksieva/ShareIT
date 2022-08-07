@@ -7,7 +7,9 @@ import './profile.css';
 
 const Profile = () => {
   const { user } = useContext(AuthContext);
-const [img, setImg] = useState([]);
+  const [img, setImg] = useState([]);
+
+
   const onSubmit = (e) => {
     e.preventDefault();
 
@@ -15,20 +17,41 @@ const [img, setImg] = useState([]);
 
     editProfile(user._id, data);
   }
-  useEffect( () => {
-    
-  })
 
-console.log(img)
+
+
+
+  const getAvatar = () => {
+
+    const imageUrl = `https://robohash.org/${user.name}`;
+    const fetchImage = async () => {
+      const res = await fetch(imageUrl);
+      const imageBlob = await res.blob();
+      const imageObjectURL = URL.createObjectURL(imageBlob);
+      setImg(imageObjectURL);
+    };
+
+    useEffect(() => {
+      fetchImage();
+    }, []);
+
+    return (
+      <>
+        <img src={img} alt="icons" />
+      </>
+    );
+  }
+
+  const result = getAvatar();
+ 
 
 
   return (
 
     <section className="gradient-custom ">
       <div className="container  py-5 h-50 ">
-      <div className="avatar">
-          <img src={""} className="rounded-circle"
-            alt="Avatar" />
+        <div className="avatar">
+          {result}
         </div>
         <form className="" onSubmit={onSubmit}>
           <div className="row d-flex justify-content-center align-items-center h-100">
