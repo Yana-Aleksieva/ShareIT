@@ -16,8 +16,6 @@ const [img, setImg] = useState([]);
     editProfile(user._id, data);
   }
   useEffect( () => {
-    const result =  retrieveAvatar(user._id)
-    .then(result => setImg(result))
     
   })
 
@@ -29,7 +27,7 @@ console.log(img)
     <section className="gradient-custom ">
       <div className="container  py-5 h-50 ">
       <div className="avatar">
-          <img src={"https://xsgames.co/randomusers/assets/avatars/pixel/29.jpg"} class="rounded-circle"
+          <img src={""} className="rounded-circle"
             alt="Avatar" />
         </div>
         <form className="" onSubmit={onSubmit}>
@@ -87,7 +85,7 @@ console.log(img)
 
                     </div>
                     <button
-                      className="btn btn-outline-light btn-lg px-5"
+                      className="btn btn-outline-light btn-lg px-5 updateProfile"
                       type="submit"
                     >
                       Update profile

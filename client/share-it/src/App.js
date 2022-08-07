@@ -13,11 +13,12 @@ import Home from './components/Home/Home.js';
 import Create from './components/Create/Create.js';
 import Edit from './components/Mathematics/EditTest/EditTest.js';
 import Profile from './components/Profile/Profile.js';
+import { useLocalStorage } from './hooks/useLocalStorage.js';
 
 function App() {
 
-  const [auth, setAuth] = useState({})
-  const [test, setTests] = useState({})
+  const [auth, setAuth] = useLocalStorage('auth', {})
+
   const userLogin = (authData) => {
 
     setAuth(authData);
@@ -28,10 +29,7 @@ function App() {
     setAuth({});
   }
 
-  const testsData = (data) => {
-
-    setTests(data);
-  }
+ 
 
 
   return (

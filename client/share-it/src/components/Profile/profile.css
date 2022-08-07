@@ -28,7 +28,9 @@
     padding-left: 16%;
 }
 
-
+.updateProfile{
+    margin-bottom: -70px;
+}
 @media (min-width: 768px) {
 
     .mb-md-5,
