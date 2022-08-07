@@ -1,9 +1,12 @@
+import { useContext } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../contexts/authContext.js";
 
 const LatestTests = ({
     test
 }) => {
 
+  const {user} = useContext(AuthContext)
   
     return (
 
@@ -27,10 +30,10 @@ const LatestTests = ({
             <div className="d-flex justify-content-between">
               <p className="small">
                 <a href="#!" className="text-dark">
-                  {test._ownerId}
+                 
                 </a>
               </p>
-              <p className="mb-0 text-dark">Yana</p>
+              <p className="mb-0 text-dark"></p>
             </div>
             <div className="d-flex justify-content-between mb-3">
               <h5 className="mb-0 text-dark">Grade</h5>
@@ -44,7 +47,14 @@ const LatestTests = ({
                 <i className="fa fa-star" />
                 <i className="fa fa-star" />
                 <i className="fa fa-star" />
-                <Link to={`/edit/${test._id}` } className="text-white-50 fw-bold btn btn-dark" type="button" >Edit</Link>
+
+                { user._id === test._ownerID
+                
+                ? <Link to={`/edit/${test._id}` } className="text-white-50 fw-bold btn btn-dark" type="button" >Edit</Link>
+                
+                :<Link to={`/edit/${test._id}` } className="text-white-50 fw-bold btn btn-dark" type="button" >Try it</Link>
+                }
+                
               </div>
             </div>
           </div>

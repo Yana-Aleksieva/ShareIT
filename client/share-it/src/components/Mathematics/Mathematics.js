@@ -2,22 +2,23 @@ import { getAll } from '../../services/testsService'
 import { useState, useEffect } from 'react';
 import LatestTests from './LatestTests/LatestTests.js';
 import { useContext } from "react";
-import { TestsContext } from '../contexts/testsContext.js';
+
 import './math.css';
+import { TestsContext } from '../contexts/testsContext.js';
 
 
 const Mathematics = () => {
-  const [tests, setTests] = useState([]);
 
+  const {tests, getAllTests } = useContext(TestsContext);
 
   useEffect(() => {
 
     const fetchData = async () => {
       try {
-        const body = await getAll()
+        const tests = await getAll()
 
-
-        setTests(body);
+      
+        getAllTests(tests);
 
 
       } catch (err) {
@@ -38,12 +39,12 @@ const Mathematics = () => {
 
         <div className="row">
 
-          {
+           {
             tests.length > 0
 
               ? tests.map(test => <LatestTests key={test._id} test={test} />)
               : <p>No tests yet</p>
-          }
+          } 
 
         </div>
       </div>

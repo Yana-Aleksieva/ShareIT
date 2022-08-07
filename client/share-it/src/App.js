@@ -20,7 +20,7 @@ import UserTests from './components/UserTests/UserTests.js';
 function App() {
 
   const [auth, setAuth] = useLocalStorage('auth', {})
-
+  const [tests, setTests] = useState([])
   const userLogin = (authData) => {
 
     setAuth(authData);
@@ -31,14 +31,16 @@ function App() {
     setAuth({});
   }
 
- 
+  const getAllTests = (testsData) => {
+    setTests(testsData)
+  }
 
 
   return (
 
     <AuthContext.Provider value={{ user: auth, userLogin, userLogout }}>
-     
-      
+      <TestsContext.Provider value={{tests: tests, getAllTests}}>
+
         <div id='box'>
           <Header />
 
@@ -55,16 +57,16 @@ function App() {
               <Route path='/edit/:id' element={<Edit />} />
               <Route path='/currentTests' element={<UserTests />} />
               <Route path='/profile' element={<Profile />} />
-             
+
 
             </Routes>
 
           </main>
 
         </div>
-       
-    
-     
+
+
+      </TestsContext.Provider>
     </AuthContext.Provider>
 
   );
