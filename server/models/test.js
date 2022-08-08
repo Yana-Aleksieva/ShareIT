@@ -29,14 +29,15 @@ const testSchema = new mongoose.Schema({
         type:Number,
          require: true
         },
-    topic: { 
+    subject: { 
         type:String,
          require: true
         },
     _ownerId: {
         type: mongoose.Types.ObjectId,
         ref: 'User'
-    }
+    },
+    created_at    : { type: Date, required: true, default: Date.now() }
 
 });
 

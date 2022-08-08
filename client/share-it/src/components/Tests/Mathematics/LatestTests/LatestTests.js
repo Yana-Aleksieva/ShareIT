@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import { Link } from "react-router-dom";
-import { AuthContext } from "../../contexts/authContext.js";
+import { AuthContext } from "../../../contexts/authContext.js";
 
 const LatestTests = ({
     test
@@ -38,7 +38,7 @@ const LatestTests = ({
             </div>
             <div className="d-flex justify-content-between mb-3">
               <h5 className="mb-0 text-dark">Class: {test.class}</h5>
-              <h5 className="text-dark mb-0">Topic: {test.topic}</h5>
+              <h5 className="text-dark mb-0">Subject: {test.topic}</h5>
             </div>
             <div className="d-flex justify-content-between mb-2">
             

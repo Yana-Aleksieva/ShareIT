@@ -54,7 +54,7 @@ const Create = () => {
                   <select
                     className="ml-3"
 
-                    name="topic"
+                    name="subject"
                   >
                      <option value="mathematics">Mathematics</option>
                         <option value="english">English</option>

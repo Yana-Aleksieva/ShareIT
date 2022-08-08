@@ -1,7 +1,26 @@
 import { Link } from "react-router-dom";
 import './home.css'
+import { getAll } from "../../services/testsService.js";
+import { useState, useEffect, useContext } from 'react';
+import { TestsContext } from "../contexts/testsContext.js";
 
 const Home = () => {
+
+  const { tests, getAllTests } = useContext(TestsContext);
+
+
+  useEffect(() => {
+
+    const fetchData = async () => {
+
+      const data = await getAll()
+      getAllTests(data)
+
+    }
+    fetchData()
+
+
+  }, []);
 
 
   return (

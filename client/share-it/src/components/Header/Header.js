@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { useContext } from "react";
 import { AuthContext } from "../contexts/authContext.js";
-
+import './header.css'
 const Header = () => {
 
   const { user } = useContext(AuthContext);
@@ -35,7 +35,7 @@ const Header = () => {
               </Link>
               <Link to="/profile" className='nav-item nav-link'>Profile
               </Link>
-              <Link to="/currentTests" className='nav-item nav-link'>My tests
+              <Link to="/currentTests" className=' my-tests nav-item nav-link'>My tests
               </Link>
             </div>
             :

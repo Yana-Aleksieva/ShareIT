@@ -8,10 +8,10 @@ import Login from './components/Login/Login.js';
 import { AuthContext } from './components/contexts/authContext.js';
 import { TestsContext } from './components/contexts/testsContext'
 import { useState } from 'react';
-import Mathematics, { Mathemtics } from './components/Mathematics/Mathematics'
+import Mathematics from './components/Tests/Mathematics/Mathematics';
 import Home from './components/Home/Home.js';
 import Create from './components/Create/Create.js';
-import Edit from './components/Mathematics/EditTest/EditTest.js';
+import Edit from './components/Tests/Mathematics/EditTest/EditTest';
 import Profile from './components/Profile/Profile.js';
 import { useLocalStorage } from './hooks/useLocalStorage.js';
 import CurrentUserTests from './components/UserTests/CurrentUsrTests/CurrentUserTests.js';

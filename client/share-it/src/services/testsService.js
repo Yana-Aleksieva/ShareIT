@@ -19,14 +19,9 @@ export const createTest = async (data) => {
 
 export const getAll = async () => {
 
-    return await fetch(`${baseUrl}`)
-
-        .then(result => result.json())
-
-
-
-
-
+   const request = await fetch(`${baseUrl}`)
+   const result = await request.json();
+    return  result;
 }
 
 export const getOneById = async (id) => {

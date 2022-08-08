@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
-import { getOneById } from "../../../services/testsService";
+import { getOneById } from "../../../../services/testsService";
 import { useParams, useNavigate } from "react-router-dom";
-import { edit } from "../../../services/testsService";
-import { deleteTest } from "../../../services/testsService";
+import { edit} from "../../../../services/testsService";
+import {deleteTest} from '../../../../services/testsService'
 
 const Edit = () => {
 
