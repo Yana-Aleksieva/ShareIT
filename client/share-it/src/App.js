@@ -8,7 +8,9 @@ import Login from './components/Login/Login.js';
 import { AuthContext } from './components/contexts/authContext.js';
 import { TestsContext } from './components/contexts/testsContext'
 import { useState } from 'react';
-import Mathematics from './components/Tests/Mathematics/Mathematics';
+import Mathematics from './components/Tests/Mathematics/Mathematics.js';
+import Bulgarian from './components/Tests/Bulgarian/Bulgarian'
+import English from './components/Tests/English/English'
 import Home from './components/Home/Home.js';
 import Create from './components/Create/Create.js';
 import Edit from './components/Tests/Mathematics/EditTest/EditTest';
@@ -16,6 +18,7 @@ import Profile from './components/Profile/Profile.js';
 import { useLocalStorage } from './hooks/useLocalStorage.js';
 import CurrentUserTests from './components/UserTests/CurrentUsrTests/CurrentUserTests.js';
 import UserTests from './components/UserTests/UserTests.js';
+
 
 function App() {
 
@@ -53,6 +56,8 @@ function App() {
               <Route path='/' element={<Home />} />
               <Route path='/logout' element={<Logout />} />
               <Route path='/math' element={<Mathematics />} />
+              <Route path='/english' element={<English/>} />
+              <Route path='/bulgarian' element={<Bulgarian/>}/>
               <Route path='/create' element={<Create />} />
               <Route path='/edit/:id' element={<Edit />} />
               <Route path='/currentTests' element={<UserTests />} />

@@ -1,7 +1,5 @@
 
-
-# dependencies
-/node_modules
-/.pnp
-.pnp.js
-
+node_modules/ieee754/LICENSE
+node_modules/ieee754/package.json
+node_modules/ieee754/README.md
+node_modules/ignore-by-default/index.js

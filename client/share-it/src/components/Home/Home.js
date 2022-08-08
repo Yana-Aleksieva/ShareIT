@@ -54,9 +54,9 @@ const Home = () => {
 
             </ul>
             <div className="pricing-footer">
-              <a href="/enlish" className="btn btn-primary btn-lg">
+              <Link to="/english" className="btn btn-primary btn-lg">
                 Try it
-              </a>
+              </Link>
             </div>
           </div>
         </div>
@@ -71,9 +71,9 @@ const Home = () => {
 
             </ul>
             <div className="pricing-footer">
-              <a href="/enlish" className="btn btn-primary btn-lg">
+              <Link to="/bulgarian" className="btn btn-primary btn-lg">
                 Try it
-              </a>
+              </Link>
             </div>
           </div>
         </div>

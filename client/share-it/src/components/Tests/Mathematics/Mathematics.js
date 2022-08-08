@@ -1,6 +1,6 @@
-import { getAll } from '../../../services/testsService'
+
 import { useState, useEffect } from 'react';
-import LatestTests from './LatestTests/LatestTests.js';
+import LatestTests from '../LatestTests/LatestTests';
 import { useContext } from "react";
 
 import './math.css';
