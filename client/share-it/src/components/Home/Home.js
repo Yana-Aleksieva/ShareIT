@@ -3,6 +3,7 @@ import './home.css'
 import { getAll } from "../../services/testsService.js";
 import { useState, useEffect, useContext } from 'react';
 import { TestsContext } from "../contexts/testsContext.js";
+import {StarRaiting} from "../Tests/StarRaitings/StarRaitings";
 
 const Home = () => {
 
@@ -74,6 +75,9 @@ const Home = () => {
               <Link to="/bulgarian" className="btn btn-primary btn-lg">
                 Try it
               </Link>
+            </div>
+            <div>
+       
             </div>
           </div>
         </div>

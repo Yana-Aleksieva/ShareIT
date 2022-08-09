@@ -12,7 +12,7 @@ const Login = () => {
 
   const onSubmit = async (e) => {
 
-    console.log(e.target)
+   
 
     e.preventDefault();
     const {

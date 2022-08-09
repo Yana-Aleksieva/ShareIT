@@ -2,7 +2,7 @@ import { useContext } from "react";
 import { AuthContext } from "../contexts/authContext";
 import { useNavigate } from 'react-router-dom';
 import { createTest } from "../../services/testsService.js";
-
+import './create.css'
 
 
 const Create = () => {
@@ -32,7 +32,7 @@ const Create = () => {
 
     <div className="container mt-5">
       <form onSubmit={onSubmit}>
-        <div className="d-flex justify-content-center row">
+        <div className=" boreder d-flex justify-content-center row">
           <div className="col-md-10 col-lg-10">
             <div className="border">
               <div className="question text-dark p-3 border-bottom">
@@ -107,10 +107,10 @@ const Create = () => {
                 </div>
               </div>
 
-              <div className="d-flex flex-row justify-content-between align-items-rig p-3 bg-white">
+              <div className="footer d-flex flex-row justify-content-between align-items-rig p-3 bg-white">
 
                 <button
-                  className="btn btn-primary border-success align-items-center btn-success"
+                  className="create btn btn-primary border-success align-items-center btn-success"
                   type="submit"
                 >
                   Create
