@@ -7,3 +7,20 @@
 .pricing-header{
     color:aquamarine
 }
+.quote {
+    margin: auto;
+    margin-top: 5%;
+}
+span{
+    /* position: fixed; */
+    padding-left: 178px;
+    align-items: center;
+    text-align: center;
+    text-size-adjust: 200px;
+    /* text-decoration-color: white; */
+    font-size: 50px;
+    font-weight: bold;
+    color: black;
+  }
+  
+  

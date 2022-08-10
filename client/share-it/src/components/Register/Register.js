@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom'
 import { useContext } from "react";
 import { AuthContext } from "../contexts/authContext.js";
-
+import './register.css';
 
 const Register = () => {
 
@@ -41,9 +41,8 @@ const Register = () => {
 
   return (
 
-    <section className=" vh-100 gradient-custom ">
-      <div className="container  py-5 h-50 ">
-        <form className="" onSubmit={onSubmit}>
+
+        <form className=" register-form pt-5 h-50 w-75" onSubmit={onSubmit}>
           <div className="row d-flex justify-content-center align-items-center h-100">
             <div className="col-12 col-md-8 col-lg-6 col-xl-5">
               <div
@@ -105,23 +104,14 @@ const Register = () => {
                         Forgot password?
                       </Link>
                     </p>
+                    
                     <button
                       className="btn btn-outline-light btn-lg px-5"
                       type="submit"
                     >
                       Register
                     </button>
-                    <div className="d-flex justify-content-center text-center mt-4 pt-1">
-                      <a href="#!" className="text-white">
-                        <i className="fab fa-facebook-f fa-lg" />
-                      </a>
-                      <a href="#!" className="text-white">
-                        <i className="fab fa-twitter fa-lg mx-4 px-2" />
-                      </a>
-                      <a href="#!" className="text-white">
-                        <i className="fab fa-google fa-lg" />
-                      </a>
-                    </div>
+                   
                   </div>
                   <div>
                     <p className="mb-0 pt-0">
@@ -136,8 +126,7 @@ const Register = () => {
             </div>
           </div>
         </form>
-      </div>
-    </section>
+  
 
   );
 
