@@ -11,14 +11,14 @@
     margin: auto;
     margin-top: 5%;
 }
-span{
+.quote-box{
     /* position: fixed; */
     padding-left: 178px;
     align-items: center;
     text-align: center;
     text-size-adjust: 200px;
     /* text-decoration-color: white; */
-    font-size: 50px;
+    font-size: 30px;
     font-weight: bold;
     color: black;
   }

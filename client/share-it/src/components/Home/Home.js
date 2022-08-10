@@ -29,8 +29,8 @@ const Home = () => {
   return (
 
     <div className="container pt-5 ">
-      <div className="quote">
-        <span>{ quote.quote}</span>
+      <div className="quote box">
+        <span className="quote-box">{ quote.quote}</span>
       </div>
 
 
