@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../contexts/authContext.js";
-import { editProfile, retrieveAvatar } from "../../services/userService.js";
+import { editProfile, retrieveAvatar, updateProfile } from "../../services/userService.js";
 import './profile.css';
 
 
@@ -41,9 +41,7 @@ const Profile = () => {
       </>
     );
   }
-
   const result = getAvatar();
-
 
 
   return (
@@ -71,8 +69,6 @@ const Profile = () => {
                         Phone
                       </label>
                       <input
-                        type="phone"
-                        id="phone"
                         name="phone"
                         className="form-control form-control-lg"
                       />
@@ -93,21 +89,9 @@ const Profile = () => {
 
                     </div>
 
-                    <div className="form-outline form-white mb-4">
-                      <label className="form-label" htmlFor="typePasswordX">
-                        Role
-                      </label>
-                      <select
 
-                        name="role"
-                        className="form-control form-control-lg"
-                      >
-                        <option value="teacher">Teacher</option>
-                        <option value="student">Student</option>
-                      </select>
-
-                    </div>
                     <button
+
                       className="btn btn-outline-light btn-lg px-5 updateProfile"
                       type="submit"
                     >

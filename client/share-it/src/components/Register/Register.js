@@ -1,7 +1,7 @@
 import { register } from "../../services/userService.js";
 import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom'
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { AuthContext } from "../contexts/authContext.js";
 import './register.css';
 
@@ -10,21 +10,24 @@ const Register = () => {
   const { userLogin } = useContext(AuthContext);
   const navigate = useNavigate();
 
+
+
   const onSubmit = async (e) => {
 
-    console.log(e.target)
+
 
     e.preventDefault();
     const {
       name,
       email,
-      password
+      password,
+      role
     } = Object.fromEntries(new FormData(e.target));
-
+ 
 
     try {
-      const user = await register('POST', 'http://localhost:3030/data/users/register', { name, email, password });
-      //console.log(user);
+      const user = await register('POST', 'http://localhost:3030/data/users/register', { name, email, password, role });
+    
       userLogin(user)
       navigate('/')
     } catch (err) {
@@ -103,11 +106,11 @@ const Register = () => {
                 <div className="form-outline form-white mb-2">
                   <select
 
-                    name="gender"
+                    name="role"
                     className="form-control form-control-lg"
                   >
-                    <option value="Femle">Teacher</option>
-                    <option value="Male">Student</option>
+                    <option value="teacher">Teacher</option>
+                    <option value="student" >Student</option>
                   </select>
                   <label className="form-label" htmlFor="typeEmailX">
                     Role

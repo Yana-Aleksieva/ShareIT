@@ -25,7 +25,7 @@ const Home = () => {
 
   }, []);
 
-  console.log(quote)
+
   return (
 
     <div className="container pt-5 ">

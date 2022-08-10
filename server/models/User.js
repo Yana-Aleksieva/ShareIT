@@ -2,6 +2,7 @@
 const mongoose = require('mongoose');
 
 const userSchema = new mongoose.Schema({
+    
     name: {
         type: String,
         require: true,
@@ -20,7 +21,7 @@ const userSchema = new mongoose.Schema({
     },
     role: {
         type: String,
-        
+        require: true,
     },
     gender: {
         type: String,
@@ -30,7 +31,7 @@ const userSchema = new mongoose.Schema({
         type: String,
        
     },
-    
+
 
 });
 

@@ -10,6 +10,6 @@ const data = fetch('https://quotes.rest/qod')
 
 
 	
-    console.log(data)
+  
     return data;
 }

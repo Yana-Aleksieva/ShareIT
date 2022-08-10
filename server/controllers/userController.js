@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const userService = require('../services/userService')
-const {COOKIE_NAME} = require('../env');
+const { COOKIE_NAME } = require('../env');
 
 
 router.post('/users/login', async (req, res) => {
@@ -18,16 +18,18 @@ router.post('/users/login', async (req, res) => {
 
 router.post('/users/register', async (req, res) => {
 
-    let {name, email, password } = req.body;
+    const { name, email, password, role } = req.body
+    console.log(role)
+    try {
 
-     try {
+        const user = await userService.createUser(name, email, password, role);
+        res.cookie(COOKIE_NAME, user.refreshToken, { httpOnly: true })
 
-        const user = await userService.createUser(name, email, password );
-        res.cookie(COOKIE_NAME, user.refreshToken, {httpOnly: true})
-      
         res.json({
             email: user.email,
             _id: user._id,
+            role: user.role,
+            name: user.name,
             refreshToken: user.refreshToken
         });
 
@@ -37,7 +39,7 @@ router.post('/users/register', async (req, res) => {
 });
 
 router.get('/users/logout', (req, res) => {
-    res.json({ });
+    res.json({});
 });
 
 router.post('/refresh', async (req, res) => {
@@ -68,9 +70,9 @@ router.post('/refresh', async (req, res) => {
 router.put('/users/edit/:id', async (req, res) => {
 
     console.log(req.body)
-  await  userService.updateOneById(req.params.id, req.body);
+    await userService.updateOneById(req.params.id, req.body);
 
-    res.json({ok: true})
+    res.json({ ok: true })
 })
 
 

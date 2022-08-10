@@ -38,3 +38,10 @@ export const retrieveAvatar = async (id) => {
     const response = await request.json();
 
 }
+
+export const updateProfile = async (id) => {
+
+const response = await fetch(`http://localhost:3030/data/users/edit/${id}`);
+
+
+}
