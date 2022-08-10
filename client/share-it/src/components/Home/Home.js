@@ -30,7 +30,7 @@ const Home = () => {
 
     <div className="container pt-5 ">
       <div className="quote box">
-        <span className="quote-box">{ quote.quote}</span>
+        <span className="quote-box animate-charcter">{ quote.quote}</span>
       </div>
 
 
