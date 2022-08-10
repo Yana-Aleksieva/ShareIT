@@ -14,8 +14,8 @@ const LatestTests = ({
   const [raiting, setRaiting] = useState(null)
 
 
-  const onChange = () => {
-
+  const onChange = (value) => {
+console.log(value)
   }
   return (
     <>
@@ -48,7 +48,7 @@ const LatestTests = ({
             </div>
             <div className="d-flex justify-content-between mb-3">
               <h5 className="mb-0 text-dark">Class: {test.class}</h5>
-              <h5 className="text-dark mb-0">Subject: {test.topic}</h5>
+              <h5 className="text-dark mb-0">Subject: {test.subject}</h5>
             </div>
             <div className="d-flex justify-content-between mb-2">
 
@@ -63,14 +63,14 @@ const LatestTests = ({
 
                   ? <Link to={`/edit/${test._id}`} className="text-white-50 fw-bold btn btn-dark" type="button" >Edit</Link>
 
-                  : <Link to={`/ `} className="text-white-50 fw-bold btn btn-dark" type="button" >Try it</Link>
+                  : <Link to={`/${test._id}/submit `}  className="text-white-50 fw-bold btn btn-dark" type="button" >Try it</Link>
 
                 }
               </div>
             <StarRaiting
           
          
-            onChange={onChange}
+            onChange={onChange()}
             >
 
             </StarRaiting>
