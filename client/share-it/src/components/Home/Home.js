@@ -27,16 +27,17 @@ const Home = () => {
 
 
   return (
+<div>
+   
+<h6 className="shareit-title text-dark pt-2">ShareIT <br></br>The place where you can give and receive knowledge</h6>
+    
+    <div className="container ">
+    
 
-    <div className="container pt-5 ">
-      <div className="quote box">
-        <span className="quote-box animate-charcter">{ quote.quote}</span>
-      </div>
 
-
-      <div className="container py-5">
+      <div className="catalog-box container py-3">
         <div className="row gutters">
-          <div className="col-xl-4 col-lg-4 col-md-6 col-sm-6">
+          <div className="tests-box col-xl-4 col-lg-4 col-md-4 col-sm-4">
             <div className="pricing-plan">
               <div className="pricing-header">
 
@@ -53,7 +54,7 @@ const Home = () => {
               </div>
             </div>
           </div>
-          <div className="col-xl-4 col-lg-4 col-md-6 col-sm-6">
+          <div className="tests-box col-xl-4 col-lg-4 col-md-4 col-sm-4">
             <div className="pricing-plan">
               <div className="pricing-header">
 
@@ -70,7 +71,7 @@ const Home = () => {
               </div>
             </div>
           </div>
-          <div className="col-xl-4 col-lg-4 col-md-6 col-sm-6 ">
+          <div className="tests-box col-xl-4 col-lg-4 col-md-4 col-sm-4 ">
             <div className="pricing-plan bg">
               <div className="pricing-header">
 
@@ -93,7 +94,13 @@ const Home = () => {
         </div>
       </div>
 
-
+      <div className="quote box">
+        <h5 className="text-dark text-center">Quote 0f the day:</h5>
+        <span className="quote-box animate-charcter">{ quote.quote}</span>
+      </div>
+   
+      <br/>
+    </div>
     </div>
   );
 }

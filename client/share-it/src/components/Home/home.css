@@ -1,7 +1,9 @@
-#main-content .row.gutters .col-xl-4.col-lg-4.col-md-6.col-sm-6 {
+
+
+.tests-box {
     opacity: 90%;
-    margin: auto;
-    margin-top: 10%;
+
+    margin-top: 2%;
 }
 
 .pricing-header{
@@ -30,20 +32,20 @@
     -225deg,
     #231557 0%,
     #44107a 29%,
-    #ff1361 67%,
-    #fff800 100%
+    #0b0a0a 67%,
+    #6e6e6b 100%
   );
   background-size: auto auto;
   background-clip: border-box;
   background-size: 200% auto;
   color: #fff;
   background-clip: text;
-  text-fill-color: transparent;
+ 
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   animation: textclip 2s linear infinite;
   display: inline-block;
-      font-size: 30px;
+      font-size: 10px;
 }
 
 @keyframes textclip {
@@ -52,4 +54,8 @@
   }
 }
   
+.shareit-title{
+
+  text-align: center;
+}
   

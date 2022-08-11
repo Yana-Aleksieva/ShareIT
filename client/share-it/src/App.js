@@ -19,7 +19,7 @@ import { useLocalStorage } from './hooks/useLocalStorage.js';
 import CurrentUserTests from './components/UserTests/CurrentUsrTests/CurrentUserTests.js';
 import UserTests from './components/UserTests/UserTests.js';
 import TakeTest from './components/TakeTest/TakeTest.js';
-
+import Footer from './components/Footer/Footer.js';
 
 function App() {
 
@@ -68,7 +68,7 @@ function App() {
             </Routes>
 
           </main>
-
+<Footer/>
         </div>
 
 
