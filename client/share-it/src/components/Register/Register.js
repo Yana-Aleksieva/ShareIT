@@ -1,51 +1,103 @@
 import { register } from "../../services/userService.js";
 import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom'
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../contexts/authContext.js";
 import './register.css';
+
 
 const Register = () => {
 
   const { userLogin } = useContext(AuthContext);
   const navigate = useNavigate();
+  const [error, setError] = useState({});
+  const [isSubmit, setIsSubmit] = useState(false);
 
 
+  const initialValues = {
+    name: '',
+    email: '',
+    password: '',
+    repass: '',
+
+  }
+
+  const [formValues, setFormValues] = useState(initialValues);
+  const [formErrors, setFormErrors] = useState({});
+
+  useEffect(() => {
+
+
+  }, [formErrors])
 
   const onSubmit = async (e) => {
-
-
-
     e.preventDefault();
+       setIsSubmit(true);
+    setFormErrors(validate(formValues));
+
+
+    if (Object.keys(formErrors).length === 0) {
+
+   
     const {
       name,
       email,
       password,
       role
     } = Object.fromEntries(new FormData(e.target));
+
+    const user = await register('POST', 'http://localhost:3030/data/users/register', { name, email, password, role });
+
+    userLogin(user)
+    navigate('/')
+
+  }
  
-
-    try {
-      const user = await register('POST', 'http://localhost:3030/data/users/register', { name, email, password, role });
-    
-      userLogin(user)
-      navigate('/')
-    } catch (err) {
-      navigate('/')
-    }
-
-
-
-
-
+   
 
   }
 
+  useEffect(() => {
 
+  
+  }, [formErrors]);
+
+
+  const validate = (values) => {
+
+    const errors = {};
+    const emailRegEx = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/i;
+
+    if (!values.name) {
+      errors.name = "Username is required!"
+    }
+    if (!values.password) {
+      errors.password = "Password is required!"
+    } else if (values.password.length < 4) {
+      errors.password = "Password must be more than 4 characters!"
+    } else if (values.password != values.repass) {
+      errors.repass = "Password and Reapeat Password dont match!"
+    }
+    if (!values.email) {
+      errors.email = "Email is required!"
+    } else if (!emailRegEx.test(values.email)) {
+      errors.email = "This is not a valid email!"
+    }
+
+    return errors;
+  }
+
+  const handleChange = (e) => {
+
+    const { name, value } = e.target;
+    setFormValues({ ...formValues, [name]: value });
+
+  }
   return (
 
 
     <form className=" register-form pt-3 h-50 w-75" onSubmit={onSubmit}>
+      <pre>{JSON.stringify(formValues, undefined, 2)}</pre>
       <div className="row d-flex justify-content-center align-items-center h-100">
         <div className="col-12 col-md-8 col-lg-6 col-xl-5">
           <div
@@ -56,7 +108,10 @@ const Register = () => {
               <div className="mb-md-5 mt-md-4 pb-5">
                 <h2 className="fw-bold mb-2 text-uppercase">Register</h2>
                 <p className="text-white-50 mb-5">
+
                   Please enter your email and password!
+
+
                 </p>
                 <div className="form-outline form-white mb-2">
                   <input
@@ -64,7 +119,10 @@ const Register = () => {
                     id="name"
                     name="name"
                     className="form-control form-control-lg"
+                    value={formValues.name}
+                    onChange={handleChange}
                   />
+                  <p>{formErrors.name}</p>
                   <label className="form-label" htmlFor="typeEmailX">
                     Name
                   </label>
@@ -75,7 +133,10 @@ const Register = () => {
                     id="typeEmailX"
                     name="email"
                     className="form-control form-control-lg"
+                    value={formValues.email}
+                    onChange={handleChange}
                   />
+                  <p>{formErrors.email}</p>
                   <label className="form-label" htmlFor="typeEmailX">
                     Email
                   </label>
@@ -86,7 +147,10 @@ const Register = () => {
                     id="typePasswordX"
                     name="password"
                     className="form-control form-control-lg"
+                    value={formValues.password}
+                    onChange={handleChange}
                   />
+                  <p>{formErrors.password}</p>
                   <label className="form-label" htmlFor="typePasswordX">
                     Password
                   </label>
@@ -97,8 +161,10 @@ const Register = () => {
                     id="repeatPassword"
                     name="repass"
                     className="form-control form-control-lg"
+                    value={formValues.repass}
+                    onChange={handleChange}
                   />
-
+                  <p>{formErrors.repass}</p>
                   <label className="form-label" htmlFor="typePasswordX">
                     Repeat Password
                   </label>
@@ -108,7 +174,10 @@ const Register = () => {
 
                     name="role"
                     className="form-control form-control-lg"
+                    value={formValues.role}
+                    onChange={handleChange}
                   >
+
                     <option value="teacher">Teacher</option>
                     <option value="student" >Student</option>
                   </select>

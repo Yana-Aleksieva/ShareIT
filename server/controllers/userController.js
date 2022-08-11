@@ -18,9 +18,13 @@ router.post('/users/login', async (req, res) => {
 
 router.post('/users/register', async (req, res) => {
 
-    const { name, email, password, role } = req.body
-    console.log(role)
-    try {
+
+    const { name, email, password, role } = req.body;
+    if(name !== '' &&
+    email !== '' && 
+    password !== ''){
+ 
+    
 
         const user = await userService.createUser(name, email, password, role);
         res.cookie(COOKIE_NAME, user.refreshToken, { httpOnly: true })
@@ -32,10 +36,14 @@ router.post('/users/register', async (req, res) => {
             name: user.name,
             refreshToken: user.refreshToken
         });
+  
+    }else{
 
-    } catch (err) {
-        console.log(err);
+        throw new Error ('sdoifcfoisd');
+        
     }
+
+
 });
 
 router.get('/users/logout', (req, res) => {
@@ -55,7 +63,7 @@ router.post('/refresh', async (req, res) => {
 });
 
 router.post('/refresh', async (req, res) => {
-    console.log(req.body);
+    
     let refreshToken = req.body.refreshToken;
 
     let { token, refreshToken: newRefreshToken } = await userService.refresh(refreshToken);

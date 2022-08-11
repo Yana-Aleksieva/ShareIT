@@ -4,15 +4,21 @@ const { REFRESH_TOKEN_SECRET } = require('../env.js');
 const { TOKEN_SECRET } = require('../env.js');
 
 
-exports.createUser = async (name, email, password, role ) => {
+exports.createUser = async (name, email, password, role) => {
 
-    const user = await (User.create({name, email, password, role }));
-    let token = jwt.sign({ _id: user._id, email: user.email }, TOKEN_SECRET, { expiresIn: '1m' });
-    let refreshToken = jwt.sign({ _id: user._id }, REFRESH_TOKEN_SECRET, { expiresIn: '10d' });
-    user.refreshToken = refreshToken;
-    user.token = token;
-    await user.save();
-    return user;
+    try {
+        const user = await (User.create({ name, email, password, role }));
+        let token = jwt.sign({ _id: user._id, email: user.email }, TOKEN_SECRET, { expiresIn: '1m' });
+        let refreshToken = jwt.sign({ _id: user._id }, REFRESH_TOKEN_SECRET, { expiresIn: '10d' });
+        user.refreshToken = refreshToken;
+        user.token = token;
+        await user.save();
+        return user;
+    } catch (error) {
+        console.log(error.status)
+        throw new Error(error.message);
+       
+    }
 }
 
 
@@ -28,7 +34,7 @@ exports.login = async ({ email, password }) => {
 
         user.refreshToken = refreshToken;
         await user.save({ email, password, refreshToken });
-        return  user;
+        return user;
     } else {
         throw new Error('No such user');
     }
@@ -41,13 +47,13 @@ exports.register = async ({ name, email, password, role }) => {
     let user = await User.findOne({ email, password });
 
     if (!user) {
-        await User.create({name, email, password, role });
-        
+        await User.create({ name, email, password, role });
+
         user = await User.findOne({ email, password });
         console.log(user)
         let token = jwt.sign({ _id: user._id, email: user.email }, TOKEN_SECRET, { expiresIn: '1m' });
         let refreshToken = jwt.sign({ _id: user._id }, REFRESH_TOKEN_SECRET, { expiresIn: '10d' });
-        
+
         user.refreshToken = refreshToken;
         user.role = role;
         await user.save();
@@ -76,11 +82,11 @@ exports.refresh = async (refreshToken) => {
 }
 
 exports.updateOneById = async (id, data) => {
-   const user = await User.findById(id);
-   user.role = data.role;
-   user.phone = data.phone;
-   user.gender = data.gender;
+    const user = await User.findById(id);
+    user.role = data.role;
+    user.phone = data.phone;
+    user.gender = data.gender;
 
-  await  user.save();
+    await user.save();
 };
 

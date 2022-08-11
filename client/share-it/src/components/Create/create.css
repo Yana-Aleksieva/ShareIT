@@ -7,7 +7,8 @@
     margin-top: 2%;
 }
 
-.create {
-    background-color: #d85ce3;
-    
+.create-btn{
+    background-color: #49474a;
+    text-align: center;
+    height: 40px;
 }

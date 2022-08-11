@@ -20,6 +20,7 @@ import CurrentUserTests from './components/UserTests/CurrentUsrTests/CurrentUser
 import UserTests from './components/UserTests/UserTests.js';
 import TakeTest from './components/TakeTest/TakeTest.js';
 import Footer from './components/Footer/Footer.js';
+import { ErrorBoundary } from './components/ErrorBoundary/ErrorBoudary.js';
 
 function App() {
 
@@ -41,40 +42,40 @@ function App() {
 
 
   return (
+  
+      <AuthContext.Provider value={{ user: auth, userLogin, userLogout }}>
+        <TestsContext.Provider value={{ tests: tests, getAllTests }}>
 
-    <AuthContext.Provider value={{ user: auth, userLogin, userLogout }}>
-      <TestsContext.Provider value={{tests: tests, getAllTests}}>
+          <div id='box'>
+            <Header />
 
-        <div id='box'>
-          <Header />
+            <main id='main-content'>
 
-          <main id='main-content'>
+            <ErrorBoundary>
+              <Routes >
+                <Route path='/register' element={<Register />} />
+                <Route path='/login' element={<Login />} />
+                <Route path='/' element={<Home />} />
+                <Route path='/logout' element={<Logout />} />
+                <Route path='/math' element={<Mathematics />} />
+                <Route path='/english' element={<English />} />
+                <Route path='/bulgarian' element={<Bulgarian />} />
+                <Route path='/create' element={<Create />} />
+                <Route path='/edit/:id' element={<Edit />} />
+                <Route path='/:id/submit' element={<TakeTest />} />
+                <Route path='/profile' element={<Profile />} />
+                <Route path='/user/tests' element={<UserTests />} />
 
-
-            <Routes >
-              <Route path='/register' element={<Register />} />
-              <Route path='/login' element={<Login />} />
-              <Route path='/' element={<Home />} />
-              <Route path='/logout' element={<Logout />} />
-              <Route path='/math' element={<Mathematics />} />
-              <Route path='/english' element={<English/>} />
-              <Route path='/bulgarian' element={<Bulgarian/>}/>
-              <Route path='/create' element={<Create />} />
-              <Route path='/edit/:id' element={<Edit />} />
-               <Route path='/:id/submit' element={<TakeTest />} />
-              <Route path='/profile' element={<Profile />} />
-              <Route path='/user/tests' element={<UserTests />} />
-
-            </Routes>
-
-          </main>
-<Footer/>
-        </div>
+              </Routes>
+              </ErrorBoundary>
+            </main>
+            <Footer />
+          </div>
 
 
-      </TestsContext.Provider>
-    </AuthContext.Provider>
-
+        </TestsContext.Provider>
+      </AuthContext.Provider>
+  
   );
 }
 

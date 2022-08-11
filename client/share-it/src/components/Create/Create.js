@@ -33,10 +33,10 @@ const Create = () => {
     <div className="container mt-5 vh-100 gradient-custom py-5">
       <form onSubmit={onSubmit} className="">
         <div className=" boreder d-flex justify-content-center row">
-          <div className="col-md-10 col-lg-10">
+          <div className="col-md-9 col-lg-9">
             <div className="card bg-dark text-white"
               style={{ borderRadius: "1rem" }}>
-              <div className="card-body p-5 text-center">
+              <div className="card-body p-3 text-center">
                 <div className="question text-white p-3 border-bottom">
                   <div className=" d-flex flex-row justify-content-between align-items-center mcq">
                     <h4>Title</h4>
@@ -112,9 +112,8 @@ const Create = () => {
                 <div className="footer d-flex flex-row justify-content-between align-items-rig p-3 bg-dark">
 
                   <button
-                    className="create btn btn-primary border-success align-items-center btn-success"
-                    type="submit"
-                  >
+                    className="create-btn btn btn-primary border-success align-items-center "
+                    type="submit"  >
                     Create
                     <i className="fa fa-angle-right ml-2" />
                   </button>
