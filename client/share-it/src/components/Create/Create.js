@@ -21,11 +21,22 @@ const Create = () => {
   const [formValues, setFormValues] = useState(initialValues);
   const [formErrors, setFormErrors] = useState({});
   const [isSubmit, setIsSubmit] = useState(false);
-
+  const [question, setQuestion] = useState([]);
+  
   useEffect(() => {
 
 
   }, [formErrors]);
+
+  useEffect(() => {
+		const fetchQuestion = async () => {
+			const data = await generateQuestion()
+
+			setQuestion(data[0]);
+		}
+		fetchQuestion()
+	}, [])
+
 
   const validate = (values) => {
 
@@ -58,15 +69,10 @@ const Create = () => {
 
     const { name, value } = e.target;
     setFormValues({ ...formValues, [name]: value });
-    console.log(formValues)
+   
   }
 
-  const onClick = async () => {
  
-    const res = await generateQuestion()[0];
-
-    console.log(res);
-  }
 
 
   const onSubmit = async (e) => {
@@ -81,9 +87,9 @@ const Create = () => {
       try {
 
         const response = await createTest(data);
-        // navigate('/')
+        navigate('/')
       } catch (err) {
-        // navigate('/')
+         navigate('/')
       }
     }
   }
@@ -202,8 +208,8 @@ const Create = () => {
                     name="correct">
 
                   </input>
-                  <Link to={'/generate'} className="btn btn-dark border-success align-items-center ml-5"
-                    onClick={onClick}>
+                  <Link to={'/generate'} state={{question: question}} className="btn btn-dark border-success align-items-center ml-5"
+                    >
                     Generate Question</Link>
                   <button
                     className="create-btn btn btn-primary border-success align-items-center "

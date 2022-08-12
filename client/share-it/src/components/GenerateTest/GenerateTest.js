@@ -1,28 +1,31 @@
-import { useEffect, useState } from "react";
-import { generateQuestion } from "../../services/testsService.js";
-
+import { createTest } from '../../services/testsService.js'
+import { useLocation, useNavigate } from 'react-router-dom'
 
 const GenerateTest = () => {
-	const [question, setQuestion] = useState([]);
+const navigate = useNavigate();
+	const location = useLocation()
+	const { question } = location.state
 
 
-useEffect(() => {
-	const fetchQuestion = async  ()	=> {
-		const data = await generateQuestion()
+
+
+
+
+	const onSubmit = async (e) => {
+
+		e.preventDefault();
+		const data = Object.fromEntries(new FormData(e.target));
 	
-		setQuestion(data[0]) ;
-	}
-	fetchQuestion()
-}, [])
+console.log(data)
+			try {
 
+				const response = await createTest(data);
+				  navigate('/')
+			} catch (err) {
+				 navigate('/')
+			}
+		}
 	
-
-console.log(question)
-
-	const onSubmit = async () => {
-
-		
-	}
 
 	return (
 
@@ -40,20 +43,21 @@ console.log(question)
 											className="ml-3"
 											placeholder=""
 											name="title"
-
+											defaultValue =	{question.category}
 
 										>
+										
 										</input>
 										<h4>Class</h4>
 										<input
 											className="ml-3"
 											name="class"
-
+											defaultValue ="3"
 
 										>
 
 										</input>
-										
+
 										<h4>Subject</h4>
 										<select
 											className="ml-3"
@@ -75,7 +79,7 @@ console.log(question)
 											className="ml-2 col-7"
 											placeholder="Type your question"
 											name="question1"
-
+											defaultValue ={question.question}
 										>
 										</input>
 
@@ -87,7 +91,7 @@ console.log(question)
 										<input className="ml-2 col-5"
 											placeholder="answer"
 											name="answer1"
-
+											defaultValue ={question.incorrectAnswers[0]}
 										/>
 
 									</div>
@@ -98,7 +102,7 @@ console.log(question)
 										<input className="ml-2 col-5"
 											placeholder="answer"
 											name="answer2"
-
+											defaultValue ={question.incorrectAnswers[1]}
 										/>
 
 
@@ -110,7 +114,7 @@ console.log(question)
 										<input className="ml-2 col-5"
 											placeholder="answer"
 											name="answer3"
-									
+											defaultValue ={question.incorrectAnswers[2]}
 										/>
 
 
@@ -122,7 +126,7 @@ console.log(question)
 										<input className="ml-2 col-5"
 											placeholder="answer"
 											name="answer4"
-
+											defaultValue ={question.correctAnswer}
 										/>
 
 
@@ -135,8 +139,9 @@ console.log(question)
 									<input
 										className="col-sm-4"
 										placeholder="Type the correct answer"
-										name="correct">
-
+										name="correct"
+										defaultValue={question.correctAnswer}
+									>
 									</input>
 
 									<button
