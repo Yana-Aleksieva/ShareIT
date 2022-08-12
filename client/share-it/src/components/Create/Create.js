@@ -38,6 +38,9 @@ const Create = () => {
     if (!values.class) {
       errors.class = "Class is required!"
     }
+    if (!values.question1) {
+      errors.question1 = "Question is required!"
+    }
     if (!values.answer1) {
       errors.answer1 = "Answer is required!"
     } if (!values.answer2) {
@@ -86,7 +89,7 @@ const Create = () => {
   }
   return (
 
-    <div className="container mt-1 vh-100 gradient-custom py-5">
+    <div className="container vh-100 gradient-custom py-5">
       <form onSubmit={onSubmit} className="">
         <div className=" boreder d-flex justify-content-center row">
           <div className="col-md-9 col-lg-9">
@@ -132,74 +135,80 @@ const Create = () => {
                   <div className="d-flex flex-row align-items-center question-title">
                     <h3 className="text-danger">1.</h3>
                     <input
-                      className="ml-5"
+                      className="ml-2 col-7"
                       placeholder="Type your question"
                       name="question1"
                       value={formValues.question1}
                       onChange={handleChange}
                     >
                     </input>
-                    <p className="error">{formErrors.question1}</p>
-                    <button className="btn btn-dark border-success align-items-center ml-5"
-                      onClick={onClick}>
-                      Generate Question</button>
+                    <p className="error text-danger pl-3">{formErrors.question1}</p>
+
                   </div>
-                  <div className="ans ml-2 text-white pt-2">
+                  <div className="ans row ml-3 pt-1 text-white ">
                     <label >a.</label>
 
-                    <input className="ml-5"
+                    <input className="ml-2 col-5"
                       placeholder="answer"
                       name="answer1"
                       value={formValues.answer1}
                       onChange={handleChange} />
-
+                    <p className="error text-danger pl-3">{formErrors.answer1}</p>
                   </div>
-                  <p className="error">{formErrors.answer1}</p>
-                  <div className="ans ml-2 text-white">
+
+                  <div className="ans row ml-3 pt-3 text-white ">
                     <label >b. </label>
 
-                    <input className="ml-5 text-white"
+                    <input className="ml-2 col-5"
                       placeholder="answer"
                       name="answer2"
                       value={formValues.answer3}
                       onChange={handleChange} />
 
-                    <p className="error">{formErrors.answer2}</p>
+                    <p className="error text-danger pl-3">{formErrors.answer2}</p>
 
                   </div>
-                  <div className="ans ml-2 text-white">
+                  <div className="ans row ml-3 pt-3 text-white ">
                     <label >c.  </label>
 
-                    <input className="ml-5"
+                    <input className="ml-2 col-5"
                       placeholder="answer"
                       name="answer3"
                       value={formValues.answer3}
                       onChange={handleChange} />
+                    <p className="error text-danger pl-3">{formErrors.answer3}</p>
 
                   </div>
-                  <div className=" ml-2 text-white">
-                    <label >d. </label>
 
-                    <input className="ml-5"
-                      placeholder="answer"
-                      name="answer4"
-                      value={formValues.answer3}
-                      onChange={handleChange} />
+                  <div className="ans row ml-3 pt-3 text-white ">
+                    <label className="">d.   </label>
+
+                      <input className="ml-2 col-5"
+                        placeholder="answer"
+                        name="answer4"
+                        value={formValues.answer3}
+                        onChange={handleChange} />
+                         <p className="error text-danger pl-3">{formErrors.answer4}</p>
+                 
+                   
                   </div>
+
                 </div>
 
-                <div className="card-footer d-flex flex-row justify-content-between align-items-rig p-1 bg-dark">
+                <div className="card-footer d-flex flex-row justify-content-between  p-1 bg-dark">
                   <input
-                    className="col-lg-8"
+                    className="col-sm-4"
                     placeholder="Type the correct answer"
                     name="correct">
 
                   </input>
+                  <button className="btn btn-dark border-success align-items-center ml-5"
+                    onClick={onClick}>
+                    Generate Question</button>
                   <button
                     className="create-btn btn btn-primary border-success align-items-center "
                     type="submit"  >
                     Create
-
                   </button>
 
                 </div>
