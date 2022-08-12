@@ -21,6 +21,7 @@ import UserTests from './components/UserTests/MyTests';
 import TakeTest from './components/TakeTest/TakeTest.js';
 import Footer from './components/Footer/Footer.js';
 import { ErrorBoundary } from './components/ErrorBoundary/ErrorBoudary.js';
+import GenerateTest from './components/GenerateTest/GenerateTest.js';
 
 function App() {
 
@@ -42,14 +43,14 @@ function App() {
 
 
   return (
-  
-      <AuthContext.Provider value={{ user: auth, userLogin, userLogout }}>
-        <TestsContext.Provider value={{ tests: tests, getAllTests }}>
 
-          <div id='box'>
-            <Header />
+    <AuthContext.Provider value={{ user: auth, userLogin, userLogout }}>
+      <TestsContext.Provider value={{ tests: tests, getAllTests }}>
 
-            <main id='main-content'>
+        <div id='box'>
+          <Header />
+
+          <main id='main-content'>
 
             <ErrorBoundary>
               <Routes >
@@ -65,17 +66,17 @@ function App() {
                 <Route path='/:id/submit' element={<TakeTest />} />
                 <Route path='/profile' element={<Profile />} />
                 <Route path='/user/tests' element={<UserTests />} />
-
+                <Route path='/generate' element={<GenerateTest />}/>
               </Routes>
-              </ErrorBoundary>
-            </main>
-            
-          </div>
+            </ErrorBoundary>
+          </main>
+
+        </div>
 
 
-        </TestsContext.Provider>
-      </AuthContext.Provider>
-  
+      </TestsContext.Provider>
+    </AuthContext.Provider>
+
   );
 }
 

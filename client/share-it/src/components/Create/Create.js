@@ -1,6 +1,6 @@
 import { useContext, useState, useEffect } from "react";
 import { AuthContext } from "../contexts/authContext";
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import { createTest, generateQuestion } from "../../services/testsService.js";
 import './create.css'
 
@@ -62,7 +62,7 @@ const Create = () => {
   }
 
   const onClick = async () => {
-    const id = user._id
+ 
     const res = await generateQuestion()[0];
 
     console.log(res);
@@ -202,9 +202,9 @@ const Create = () => {
                     name="correct">
 
                   </input>
-                  <button className="btn btn-dark border-success align-items-center ml-5"
+                  <Link to={'/generate'} className="btn btn-dark border-success align-items-center ml-5"
                     onClick={onClick}>
-                    Generate Question</button>
+                    Generate Question</Link>
                   <button
                     className="create-btn btn btn-primary border-success align-items-center "
                     type="submit"  >
