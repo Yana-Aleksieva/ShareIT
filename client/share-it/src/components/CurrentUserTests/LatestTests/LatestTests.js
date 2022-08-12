@@ -44,7 +44,7 @@ console.log(value)
               <h5 className="text-dark mb-0">Subject: {test.subject}</h5>
             </div>
             <div className="d-flex justify-content-between mb-3">
-              <h5 className="mb-0  text-white">Author: {test.owner}</h5>
+              <h5 className="mb-0  text-white">Title: {test.title}</h5>
               
             </div>
             <div className="d-flex justify-content-between mb-2">

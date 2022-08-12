@@ -76,6 +76,7 @@ const Profile = () => {
                       <input
                         name="phone"
                         className="form-control form-control-lg"
+                        defaultValue={user.phone}
                       />
 
                     </div>

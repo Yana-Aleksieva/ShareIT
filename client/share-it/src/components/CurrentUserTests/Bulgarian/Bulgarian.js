@@ -30,7 +30,9 @@ const Bulgarian = () => {
                        bulgarianTests.length > 0
 
                             ? bulgarianTests.map(test => <LatestTests key={test._id} test={test} />)
-                            : <p>No tests yet</p>
+                            : <div className='card bg-dark mt-5'>
+                            <h2 className='text-center text-light'>No tests yet</h2>
+                            </div>
                     }
 
                 </div>

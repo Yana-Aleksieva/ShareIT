@@ -7,15 +7,15 @@ import { TestsContext } from '../../contexts/testsContext';
 const English = () => {
 
 
-    const { tests} = useContext(TestsContext);
+    const { tests } = useContext(TestsContext);
     const [result, setResult] = useState([]);
 
 
-    useEffect( () => {
- 
-        setResult(tests.filter(t => t.subject === "english")) ;
-     
-       }, [])
+    useEffect(() => {
+
+        setResult(tests.filter(t => t.subject === "english"));
+
+    }, [])
 
     return (
 
@@ -28,7 +28,9 @@ const English = () => {
                         result.length > 0
 
                             ? result.map(test => <LatestTests key={test._id} test={test} />)
-                            : <h5>No tests yet</h5>
+                            : <div className='card bg-dark mt-5'>
+                            <h2 className='text-center text-light'>No tests yet</h2>
+                            </div>
                     }
 
                 </div>

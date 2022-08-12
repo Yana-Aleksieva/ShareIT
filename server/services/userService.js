@@ -82,10 +82,8 @@ exports.refresh = async (refreshToken) => {
 }
 
 exports.updateOneById = async (id, data) => {
-    const user = await User.findById(id);
-    user.role = data.role;
-    user.phone = data.phone;
-    user.gender = data.gender;
+    const user = await User.findOneAndUpdate({phone: data.phone, gender: data.gender});
+   
 
     await user.save();
 };
