@@ -1,6 +1,9 @@
 
-
-
+.col-md-8,
+.w-75{
+  width:100%!important;
+  max-width:100%!important;
+}
 
 .error {
 
@@ -22,4 +25,7 @@
 
  .role{
  float: right;
+ }
+ #box{
+  overflow-x: hidden;
  }
