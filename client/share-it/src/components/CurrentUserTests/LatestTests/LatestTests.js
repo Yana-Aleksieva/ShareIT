@@ -32,17 +32,10 @@ console.log(value)
 
             </div>
           </div>
-          {/* <img
-            src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/E-commerce/Products/4.webp"
-            className="card-img-top"
-            alt="Laptop"
-          /> */}
+      
           <div className="card-body">
             <div className="d-flex justify-content-between">
               <p className="small">
-                <a href="#!" className="text-dark">
-
-                </a>
               </p>
               <p className="mb-0 text-dark"></p>
             </div>
@@ -50,15 +43,14 @@ console.log(value)
               <h5 className="mb-0 text-dark">Class: {test.class}</h5>
               <h5 className="text-dark mb-0">Subject: {test.subject}</h5>
             </div>
+            <div className="d-flex justify-content-between mb-3">
+              <h5 className="mb-0 text-dark">Author: {test._ownerId}</h5>
+              
+            </div>
             <div className="d-flex justify-content-between mb-2">
 
               <div className="ms-auto text-warning">
-                <i className="fa fa-star" />
-                <i className="fa fa-star" />
-                <i className="fa fa-star" />
-                <i className="fa fa-star" />
-                <i className="fa fa-star" />
-
+             
                 {user._id == test._ownerId
 
                   ? <Link to={`/edit/${test._id}`} className="text-white-50 fw-bold btn btn-dark" type="button" >Edit</Link>

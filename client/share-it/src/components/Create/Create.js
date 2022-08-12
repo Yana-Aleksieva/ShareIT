@@ -30,7 +30,7 @@ const Create = () => {
   }
   return (
 
-    <div className="container mt-5 vh-100 gradient-custom py-5">
+    <div className="container mt-1 vh-100 gradient-custom py-5">
       <form onSubmit={onSubmit} className="">
         <div className=" boreder d-flex justify-content-center row">
           <div className="col-md-9 col-lg-9">
@@ -99,6 +99,7 @@ const Create = () => {
                     <input className="ml-5"
                       placeholder="answer"
                       name="answer3" />
+
                   </div>
                   <div className=" ml-2 text-white">
                     <label >d. </label>
@@ -109,13 +110,18 @@ const Create = () => {
                   </div>
                 </div>
 
-                <div className="footer d-flex flex-row justify-content-between align-items-rig p-3 bg-dark">
+                <div className="card-footer d-flex flex-row justify-content-between align-items-rig p-1 bg-dark">
+                  <input
+                    className="col-lg-8"
+                    placeholder="Type the correct answer"
+                    name="correct">
 
+                  </input>
                   <button
                     className="create-btn btn btn-primary border-success align-items-center "
                     type="submit"  >
                     Create
-                    <i className="fa fa-angle-right ml-2" />
+
                   </button>
 
                 </div>

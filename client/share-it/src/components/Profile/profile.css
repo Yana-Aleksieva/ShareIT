@@ -50,6 +50,10 @@
     }
 }
 
-/* .user-profile{
-  
-} */
+.footer{
+    clear: both;
+      position: relative;
+      height: 50px;
+      margin-top: -7px;
+     
+  }

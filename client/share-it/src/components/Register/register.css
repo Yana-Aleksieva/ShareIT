@@ -1,7 +1,25 @@
 
 
-.register-form{
-    
-  height: 30px;
-  position: center;
+
+
+.error {
+
+  display: none;
 }
+
+.register-form .form-control.form-control-lg.col-sm-6{
+
+  display: inline-block;
+}
+.register-form .label {
+  float: left;
+ }
+
+ .label-role{
+  float:inherit;
+  margin-bottom: 0 !important;
+ }
+
+ .role{
+ float: right;
+ }

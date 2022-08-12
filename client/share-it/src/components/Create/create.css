@@ -12,3 +12,11 @@
     text-align: center;
     height: 40px;
 }
+
+.footer{
+    clear: both;
+      position: relative;
+      height: 50px;
+      margin-top: -110px;
+     
+  }

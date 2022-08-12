@@ -33,6 +33,10 @@ const testSchema = new mongoose.Schema({
         type:String,
          require: true
         },
+        correct: { 
+            type:String,
+             require: true
+            },
     _ownerId: {
         type: mongoose.Types.ObjectId,
         ref: 'User'

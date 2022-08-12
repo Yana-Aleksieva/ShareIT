@@ -8,16 +8,16 @@ import Login from './components/Login/Login.js';
 import { AuthContext } from './components/contexts/authContext.js';
 import { TestsContext } from './components/contexts/testsContext'
 import { useState } from 'react';
-import Mathematics from './components/Tests/Mathematics/Mathematics.js';
-import Bulgarian from './components/Tests/Bulgarian/Bulgarian'
-import English from './components/Tests/English/English'
+import Mathematics from './components/CurrentUserTests/Mathematics/Mathematics';
+import Bulgarian from './components/CurrentUserTests/Bulgarian/Bulgarian'
+import English from './components/CurrentUserTests/English/English'
 import Home from './components/Home/Home.js';
 import Create from './components/Create/Create.js';
-import Edit from './components/Tests/Mathematics/EditTest/EditTest';
+import Edit from './components/CurrentUserTests/Mathematics/EditTest/EditTest';
 import Profile from './components/Profile/Profile.js';
 import { useLocalStorage } from './hooks/useLocalStorage.js';
-import CurrentUserTests from './components/UserTests/CurrentUsrTests/CurrentUserTests.js';
-import UserTests from './components/UserTests/UserTests.js';
+
+import UserTests from './components/UserTests/MyTests';
 import TakeTest from './components/TakeTest/TakeTest.js';
 import Footer from './components/Footer/Footer.js';
 import { ErrorBoundary } from './components/ErrorBoundary/ErrorBoudary.js';
@@ -69,7 +69,7 @@ function App() {
               </Routes>
               </ErrorBoundary>
             </main>
-            <Footer />
+            
           </div>
 
 

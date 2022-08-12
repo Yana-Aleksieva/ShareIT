@@ -3,7 +3,7 @@ import './home.css'
 import { getAll } from "../../services/testsService.js";
 import { useState, useEffect, useContext } from 'react';
 import { TestsContext } from "../contexts/testsContext.js";
-import { StarRaiting } from "../Tests/StarRaitings/StarRaitings";
+import { StarRaiting } from "../CurrentUserTests/StarRaitings/StarRaitings";
 import { getRandomQuote } from "../../services/homeService.js";
 
 const Home = () => {

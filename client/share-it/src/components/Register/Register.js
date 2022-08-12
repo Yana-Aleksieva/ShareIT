@@ -97,7 +97,7 @@ const Register = () => {
 
 
     <form className=" register-form pt-3 h-50 w-75" onSubmit={onSubmit}>
-      <pre>{JSON.stringify(formValues, undefined, 2)}</pre>
+      {/* <pre>{JSON.stringify(formValues, undefined, 2)}</pre> */}
       <div className="row d-flex justify-content-center align-items-center h-100">
         <div className="col-12 col-md-8 col-lg-6 col-xl-5">
           <div
@@ -114,66 +114,73 @@ const Register = () => {
 
                 </p>
                 <div className="form-outline form-white mb-2">
+                <label className=" label form-label col-sm-4 p-0" htmlFor="typeEmailX">
+                    Name
+                  </label>
                   <input
                     type="name"
                     id="name"
                     name="name"
-                    className="form-control form-control-lg"
+                    className="form-control form-control-lg col-sm-8"
                     value={formValues.name}
                     onChange={handleChange}
                   />
-                  <p>{formErrors.name}</p>
-                  <label className="form-label" htmlFor="typeEmailX">
-                    Name
-                  </label>
+                  <p className="error">{formErrors.name}</p>
+               
                 </div>
                 <div className="form-outline form-white mb-2">
+                <label className="label form-label col-sm-4 p-0" htmlFor="typeEmailX">
+                    Email
+                  </label>
                   <input
                     type="email"
                     id="typeEmailX"
                     name="email"
-                    className="form-control form-control-lg"
+                    className="form-control form-control-lg col-sm-8"
                     value={formValues.email}
                     onChange={handleChange}
                   />
-                  <p>{formErrors.email}</p>
-                  <label className="form-label" htmlFor="typeEmailX">
-                    Email
-                  </label>
+                  <p className="error">{formErrors.email}</p>
+                
                 </div>
                 <div className="form-outline form-white mb-2">
+                <label className="label form-label col-sm-4 p-0" htmlFor="typePasswordX">
+                    Password
+                  </label>
                   <input
                     type="password"
                     id="typePasswordX"
                     name="password"
-                    className="form-control form-control-lg"
+                    className="form-control form-control-lg col-sm-8"
                     value={formValues.password}
                     onChange={handleChange}
                   />
-                  <p>{formErrors.password}</p>
-                  <label className="form-label" htmlFor="typePasswordX">
-                    Password
-                  </label>
+                  <p className="error">{formErrors.password}</p>
+                
                 </div>
                 <div className="form-outline form-white mb-2">
+                <label className=" label form-label col-sm-4 p-0" htmlFor="typePasswordX">
+                    Repeat Password
+                  </label>
                   <input
                     type="password"
                     id="repeatPassword"
                     name="repass"
-                    className="form-control form-control-lg"
+                    className="form-control form-control-lg col-sm-8"
                     value={formValues.repass}
                     onChange={handleChange}
                   />
-                  <p>{formErrors.repass}</p>
-                  <label className="form-label" htmlFor="typePasswordX">
-                    Repeat Password
-                  </label>
+                  <p className="error">{formErrors.repass}</p>
+                
                 </div>
                 <div className="form-outline form-white mb-2">
+                <label className="label-role form-label col-sm-4 p-0" htmlFor="typeEmailX">
+                    Role
+                  </label>
                   <select
 
                     name="role"
-                    className="form-control form-control-lg"
+                    className="role form-control form-control-lg col-sm-8"
                     value={formValues.role}
                     onChange={handleChange}
                   >
@@ -181,9 +188,7 @@ const Register = () => {
                     <option value="teacher">Teacher</option>
                     <option value="student" >Student</option>
                   </select>
-                  <label className="form-label" htmlFor="typeEmailX">
-                    Role
-                  </label>
+               
 
                 </div>
                 <button
