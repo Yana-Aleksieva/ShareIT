@@ -66,11 +66,11 @@ export const deleteTest = async (id) => {
 export const generateQuestion = async () => {
 
     const request = await fetch('https://the-trivia-api.com/api/questions?categories=music&limit=1&difficulty=easy')
-const response = await request.json();
-return response;
-    
-    
-    
+    const response = await request.json();
+    return response;
 
-  
+
+
+
+
 }
