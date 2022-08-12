@@ -44,14 +44,14 @@ console.log(value)
               <h5 className="text-dark mb-0">Subject: {test.subject}</h5>
             </div>
             <div className="d-flex justify-content-between mb-3">
-              <h5 className="mb-0  text-white">Author: {test._ownerId}</h5>
+              <h5 className="mb-0  text-white">Author: {test.owner}</h5>
               
             </div>
             <div className="d-flex justify-content-between mb-2">
 
               <div className="ms-auto text-warning">
              
-                {user._id == test._ownerId 
+                {user._id == test.owner 
 
                   ? <Link to={`/edit/${test._id}`} className="text-dark-50 fw-bold btn btn-light" type="button" >Edit</Link>
 

@@ -86,7 +86,7 @@ const Create = () => {
     if (Object.keys(formErrors).length === 0) {
       try {
 
-        const response = await createTest(data);
+        const response = await createTest(data, user._id);
         navigate('/')
       } catch (err) {
          navigate('/')

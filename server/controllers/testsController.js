@@ -2,13 +2,14 @@ const router = require('express').Router();
 
 const testService = require('../services/testService')
 
-router.post('/create', async (req, res) => {
+router.post('/:id/create', async (req, res) => {
 
     if (req.body.title != "" &&
         req.body.question != "" &&
         req.body.qnswer1 !== "" &&
         req.body.qnswer2 !== "") {
-        await testService.createTest({ ...req.body })
+        await testService.createTest({ ...req.body, owner: req.params.id} )
+        console.log(req.params.id)
         res.json({ ok: true });
     }
 });

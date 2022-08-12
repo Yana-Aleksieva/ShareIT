@@ -1,15 +1,13 @@
 import { createTest } from '../../services/testsService.js'
 import { useLocation, useNavigate } from 'react-router-dom'
+import { AuthContext } from '../contexts/authContext.js';
+import { useContext } from 'react';
 
 const GenerateTest = () => {
 const navigate = useNavigate();
 	const location = useLocation()
 	const { question } = location.state
-
-
-
-
-
+const {user} = useContext(AuthContext) 
 
 	const onSubmit = async (e) => {
 
@@ -19,7 +17,7 @@ const navigate = useNavigate();
 console.log(data)
 			try {
 
-				const response = await createTest(data);
+				const response = await createTest(data, user._id);
 				  navigate('/')
 			} catch (err) {
 				 navigate('/')

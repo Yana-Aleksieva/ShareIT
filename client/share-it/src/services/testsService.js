@@ -1,10 +1,10 @@
 const baseUrl = 'http://localhost:3030/tests';
 
 
-export const createTest = async (data) => {
+export const createTest = async (data, id) => {
 
     const request =
-        await fetch(`${baseUrl}/create`, {
+        await fetch(`${baseUrl}/${id}/create`, {
             method: 'POST',
             headers: {
                 'Content-type': 'application/json'

@@ -12,7 +12,7 @@ const { tests} = useContext(TestsContext);
 
 useEffect( () => {
  
-  setUserTests(tests.filter(t => t._ownerId === user._id)) ;
+  setUserTests(tests.filter(t => t.owner === user._id)) ;
 
  }, [])
 

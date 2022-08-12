@@ -1,6 +1,20 @@
 const Test = require('../models/Test')
+const User = require('../models/User')
 
-exports.createTest = async (data) => { (Test.create(data)) };
+exports.createTest = async (data) => { 
+    //console.log(id)
+        
+   //const user = await User.findOne({_id: id});
+   //console.log(user)
+await  Test.create(data) ;
+const test = await Test.findOne({title: data.title, question1: data.question1});
+
+
+ 
+
+  console.log(test.owner)
+  console.log(test)
+};
 
 exports.getAll = () =>  Test.find();
 
