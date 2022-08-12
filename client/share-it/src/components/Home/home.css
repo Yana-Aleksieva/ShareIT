@@ -15,7 +15,7 @@
 }
 .quote-box{
     /* position: fixed; */
-    padding-left: 178px;
+    display: block;
     align-items: center;
     text-align: center;
     text-size-adjust: 200px;
@@ -43,9 +43,9 @@
  
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  animation: textclip 2s linear infinite;
-  display: inline-block;
-      font-size: 10px;
+  animation: textclip 2s linear infinite; 
+  display: block;
+      font-size: 20px !important;
 }
 
 @keyframes textclip {
@@ -59,10 +59,3 @@
   text-align: center;
 }
   
-.footer{
-  clear: both;
-    position: relative;
-    height: 50px;
-    margin-top: 4px;
-   
-}
