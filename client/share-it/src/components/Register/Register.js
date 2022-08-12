@@ -32,35 +32,30 @@ const Register = () => {
 
   const onSubmit = async (e) => {
     e.preventDefault();
-       setIsSubmit(true);
+    setIsSubmit(true);
     setFormErrors(validate(formValues));
 
 
     if (Object.keys(formErrors).length === 0) {
 
-   
-    const {
-      name,
-      email,
-      password,
-      role
-    } = Object.fromEntries(new FormData(e.target));
 
-    const user = await register('POST', 'http://localhost:3030/data/users/register', { name, email, password, role });
+      const {
+        name,
+        email,
+        password,
+        role
+      } = Object.fromEntries(new FormData(e.target));
 
-    userLogin(user)
-    navigate('/')
+      const user = await register('POST', 'http://localhost:3030/data/users/register', { name, email, password, role });
 
-  }
- 
-   
+      userLogin(user)
+      navigate('/')
+
+    }
 
   }
 
-  useEffect(() => {
 
-  
-  }, [formErrors]);
 
 
   const validate = (values) => {
@@ -114,7 +109,7 @@ const Register = () => {
 
                 </p>
                 <div className="form-outline form-white mb-2 pt-0">
-                <label className=" label form-label col-sm-4 p-0" htmlFor="typeEmailX">
+                  <label className=" label form-label col-sm-4 p-0" htmlFor="typeEmailX">
                     Name
                   </label>
                   <input
@@ -126,10 +121,10 @@ const Register = () => {
                     onChange={handleChange}
                   />
                   <p className="error">{formErrors.name}</p>
-               
+
                 </div>
                 <div className="form-outline form-white mb-2">
-                <label className="label form-label col-sm-4 p-0" htmlFor="typeEmailX">
+                  <label className="label form-label col-sm-4 p-0" htmlFor="typeEmailX">
                     Email
                   </label>
                   <input
@@ -141,10 +136,10 @@ const Register = () => {
                     onChange={handleChange}
                   />
                   <p className="error">{formErrors.email}</p>
-                
+
                 </div>
                 <div className="form-outline form-white mb-2">
-                <label className="label form-label col-sm-4 p-0" htmlFor="typePasswordX">
+                  <label className="label form-label col-sm-4 p-0" htmlFor="typePasswordX">
                     Password
                   </label>
                   <input
@@ -156,10 +151,10 @@ const Register = () => {
                     onChange={handleChange}
                   />
                   <p className="error">{formErrors.password}</p>
-                
+
                 </div>
                 <div className="form-outline form-white mb-2">
-                <label className=" label form-label col-sm-4 p-0" htmlFor="typePasswordX">
+                  <label className=" label form-label col-sm-4 p-0" htmlFor="typePasswordX">
                     Repeat Password
                   </label>
                   <input
@@ -171,10 +166,10 @@ const Register = () => {
                     onChange={handleChange}
                   />
                   <p className="error">{formErrors.repass}</p>
-                
+
                 </div>
                 <div className="form-outline form-white mb-2">
-                <label className="label-role form-label col-sm-4 p-0" htmlFor="typeEmailX">
+                  <label className="label-role form-label col-sm-4 p-0" htmlFor="typeEmailX">
                     Role
                   </label>
                   <select
@@ -188,7 +183,7 @@ const Register = () => {
                     <option value="teacher">Teacher</option>
                     <option value="student" >Student</option>
                   </select>
-               
+
 
                 </div>
                 <button

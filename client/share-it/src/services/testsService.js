@@ -19,9 +19,9 @@ export const createTest = async (data) => {
 
 export const getAll = async () => {
 
-   const request = await fetch(`${baseUrl}`)
-   const result = await request.json();
-    return  result;
+    const request = await fetch(`${baseUrl}`)
+    const result = await request.json();
+    return result;
 }
 
 export const getOneById = async (id) => {
@@ -61,4 +61,16 @@ export const deleteTest = async (id) => {
 
     const response = await request.json();
     return response;
+}
+
+export const generateQuestion = async () => {
+
+    const request = await fetch('https://the-trivia-api.com/api/questions?categories=music&limit=1&difficulty=easy')
+const response = await request.json();
+return response;
+    
+    
+    
+
+  
 }
