@@ -35,7 +35,7 @@ const Mathematics = () => {
     <section >
       <div className="container py-5" >
 
-        <div className="row">
+        <div className="row ">
 
           {
             result.length > 0

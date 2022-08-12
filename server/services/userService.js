@@ -57,7 +57,7 @@ exports.register = async ({ name, email, password, role }) => {
         user.refreshToken = refreshToken;
         user.role = role;
         await user.save();
-        return { user, token, refreshToken };
+        return { user, token, role, refreshToken };
     }
 
     return user;

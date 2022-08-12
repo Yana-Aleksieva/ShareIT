@@ -22,11 +22,11 @@ console.log(value)
 
 
       <div className="col-md-12 col-lg-4 mb-4 mb-lg-0" >
-        <div className="card">
+        <div className="card bg-dark text-white">
           <div className="d-flex justify-content-between p-3">
-            <p className="lead mb-0 font-weight-bold text-dark">{test.title}</p>
+            <p className="lead mb-0 font-weight-bold  text-white">{test.title}</p>
             <div
-              className="bg-info rounded-circle d-flex align-items-center justify-content-center shadow-1-strong"
+              className="bg-info  rounded-circle d-flex align-items-center justify-content-center shadow-1-strong"
               style={{ width: 35, height: 35 }}
             >
 
@@ -40,22 +40,22 @@ console.log(value)
               <p className="mb-0 text-dark"></p>
             </div>
             <div className="d-flex justify-content-between mb-3">
-              <h5 className="mb-0 text-dark">Class: {test.class}</h5>
+              <h5 className="mb-0  text-white">Class: {test.class}</h5>
               <h5 className="text-dark mb-0">Subject: {test.subject}</h5>
             </div>
             <div className="d-flex justify-content-between mb-3">
-              <h5 className="mb-0 text-dark">Author: {test._ownerId}</h5>
+              <h5 className="mb-0  text-white">Author: {test._ownerId}</h5>
               
             </div>
             <div className="d-flex justify-content-between mb-2">
 
               <div className="ms-auto text-warning">
              
-                {user._id == test._ownerId
+                {user._id == test._ownerId 
 
-                  ? <Link to={`/edit/${test._id}`} className="text-white-50 fw-bold btn btn-dark" type="button" >Edit</Link>
+                  ? <Link to={`/edit/${test._id}`} className="text-dark-50 fw-bold btn btn-light" type="button" >Edit</Link>
 
-                  : <Link to={`/${test._id}/submit `}  className="text-white-50 fw-bold btn btn-dark" type="button" >Try it</Link>
+                  : <Link to={`/${test._id}/submit `}  className="text-dark-50 fw-bold btn btn-light" type="button" >Try it</Link>
 
                 }
               </div>

@@ -29,14 +29,16 @@ const Header = () => {
           user.email ?
             <div className="navbar-nav float-right">
               {user.email && <span className='nav-item nav-link disabled text-light'>Welcome, {user.email}</span>}
-              <Link to="/logout" className='nav-item nav-link'>Logout
-              </Link>
-              <Link to="/create" className='nav-item nav-link'>Create test
-              </Link>
-              <Link to="/profile" className='nav-item nav-link'>Profile
-              </Link>
-              <Link to="/user/tests" className=' my-tests nav-item nav-link'>My tests
-              </Link>
+              
+              {user.role === "teacher"?
+              <>
+              <Link to="/user/tests" className=' my-tests nav-item nav-link'>My tests</Link>
+              <Link to="/create" className='nav-item nav-link'>Create test  </Link> 
+              </>
+              :""
+            }
+            <Link to="/logout" className='nav-item nav-link'>Logout</Link>
+              <Link to="/profile" className='nav-item nav-link'>Profile</Link>
             </div>
             :
             <div className="navbar-nav float-right">
