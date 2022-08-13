@@ -1,17 +1,20 @@
 # ShareIT
- a simple SPA developed with Express, Mongoose and React
+ a simple SPA developed with Express, Mongoose and React where you can create and update your own tests.
 
+## Motivation
 
-Technologies:
+I wanted to create something useful and related to education. As a teacher i wanted to crate a place where teachers and students can create and make test.
 
- - Bootstrap 4 or 5
+## Technologies:
+
+ - Bootstrap 
  - React
  - JavaScript
  - Mongoose
  - Express
 
 
- Launch:
+ ## Launch:
 
 You have to install MongoDB Compass on your local machine.
 
@@ -27,3 +30,6 @@ Folders
 
 -  Use the package manager npm to install all of the required dependencies. / npm i
 -  Use the package manager npm to run the client by typing npm start.
+
+## Usage
+
