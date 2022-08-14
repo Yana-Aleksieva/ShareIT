@@ -3,7 +3,7 @@
 
 ## Motivation
 
-I wanted to create something useful and related to education. As a teacher i wanted to crate a place where teachers and students can create and make test.
+I wanted to create something useful and related to education,  a place where teachers and students can create and make test.
 
 ## Technologies:
 
